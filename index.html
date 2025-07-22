@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Cédric Bernardin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f4f4f9;
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .container {
+            max-width: 1000px;
+            background-color: white;
+            margin: 2rem auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .main-content {
+            padding: 2.5rem 3rem;
+        }
+        .sidebar {
+            padding: 2.5rem;
+            background-color: #f8fafc;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .header h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+            color: #bdc3c7;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #34495e;
+        }
+        .company {
+            font-weight: 600;
+            color: #3498db;
+        }
+        .date {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: #34495e;
+        }
+        .contact-item i {
+            width: 20px;
+            color: #3498db;
+            margin-right: 10px;
+        }
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+        .skill-category h4 {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                display: block;
+            }
+            .main-content, .sidebar {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Cédric Bernardin</h1>
+            <h2>Professeur de FLE | Traducteur | Concepteur Pédagogique</h2>
+        </div>
+        
+        <div class="md:grid md:grid-cols-3">
+            <!-- Colonne de gauche (Sidebar) -->
+            <div class="sidebar md:col-span-1 border-r border-gray-200">
+                <h3 class="section-title">Contact</h3>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>999 205 51 09</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>ced.bernardin@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Mérida, Yucatan, Mexique</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="hover:text-blue-600">Profil LinkedIn</a>
+                </div>
+
+                <h3 class="section-title mt-8">Compétences</h3>
+                <div class="skill-category">
+                    <h4>Pédagogie</h4>
+                    <p class="text-gray-700 text-sm">Enseignement du FLE, Ingénierie Pédagogique, Pédagogie par Projet, Différenciation, Technologies de l’Éducation.</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Linguistique</h4>
+                    <p class="text-gray-700 text-sm">Traduction Experte (Espagnol <> Français), Interprétariat, Révision et Correction.</p>
+                </div>
+                 <div class="skill-category">
+                    <h4>Gestion de Projet</h4>
+                    <p class="text-gray-700 text-sm">Management de Projets, Consulting, Conception de Produits Touristiques.</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Techniques</h4>
+                    <p class="text-gray-700 text-sm">Création de Contenu, Gestion de Sites (WordPress), Maîtrise des Outils Numériques (LMS, TBI), IA pour l'apprentissage.</p>
+                </div>
+
+                <h3 class="section-title mt-8">Formation</h3>
+                <div>
+                    <p class="job-title">Master 2 | FLE</p>
+                    <p class="company">Université des Antilles</p>
+                    <p class="date">2016 - 2018</p>
+                </div>
+                <div class="mt-4">
+                    <p class="job-title">Master 2 | Management</p>
+                    <p class="company">SKEMA Business School</p>
+                    <p class="date">2002 - 2006</p>
+                </div>
+                <div class="mt-4">
+                    <p class="job-title">Classe Préparatoire HEC</p>
+                    <p class="company">Lycée Gay Lussac, Limoges</p>
+                    <p class="date">2000 - 2002</p>
+                </div>
+                <div class="mt-4">
+                    <p class="job-title">Baccalauréat S</p>
+                    <p class="company">Mention Assez Bien</p>
+                    <p class="date">2000</p>
+                </div>
+            </div>
+
+            <!-- Colonne de droite (Contenu principal) -->
+            <div class="main-content md:col-span-2">
+                <h3 class="section-title">Profil</h3>
+                <p class="text-gray-700 mb-6">
+                    Professionnel passionné et polyvalent avec plus de 15 ans d'expérience dans l'enseignement du français, la traduction spécialisée et la création de contenu pédagogique. Expert dans la conception de programmes engageants et l'utilisation des technologies éducatives, avec une grande sensibilité aux IA, pour favoriser la réussite des étudiants.
+                </p>
+
+                <h3 class="section-title">Expérience Professionnelle</h3>
+                <div class="mb-6">
+                    <p class="job-title">Professeur pour le Diplomado “Pays Européens”</p>
+                    <p class="company">Universidad Anáhuac Mayab | À distance</p>
+                    <p class="date">Février 2025 - Présent</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Professeur de Français</p>
+                    <p class="company">tuSpeaking | En Ligne</p>
+                    <p class="date">Octobre 2022 - Présent</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Professeur de Français</p>
+                    <p class="company">Enes Mérida, UNAM</p>
+                    <p class="date">Février 2020 - Présent</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Professeur de Français</p>
+                    <p class="company">Universidad Anáhuac Mayab</p>
+                    <p class="date">Janvier 2021 - Juin 2025</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Traducteur Espagnol-Français</p>
+                    <p class="company">Freelance | Mexique</p>
+                    <p class="date">Septembre 2010 - Présent</p>
+                    <p class="text-gray-700 mt-1 text-sm">Traduction de guides touristiques, livres sur les mayas, documents officiels.</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Créateur de Contenus Pédagogiques</p>
+                    <p class="company">e-Meent</p>
+                    <p class="date">Février 2020 - Décembre 2020</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Professeur de FLE</p>
+                    <p class="company">Colégio Teresiano</p>
+                    <p class="date">Janvier 2019 - Juin 2020</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Professeur de Français</p>
+                    <p class="company">UNAM CEPHCIS</p>
+                    <p class="date">Septembre 2013 - Août 2019</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Concepteur de Circuits Touristiques & Guide</p>
+                    <p class="company">ALTER A.C. (Co-fondateur)</p>
+                    <p class="date">Novembre 2009 - Janvier 2016</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Professeur de Français</p>
+                    <p class="company">Alliance Française de Mérida</p>
+                    <p class="date">Jan. 2015 - Déc. 2016 & Août 2007 - Mars 2009</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Professeur (Planification Touristique et Écotourisme)</p>
+                    <p class="company">UVM - Glion (Gastronomie)</p>
+                    <p class="date">2011 - 2013</p>
+                </div>
+                <div class="mb-6">
+                    <p class="job-title">Professeur de Français</p>
+                    <p class="company">Universidad del Valle de México (UVM)</p>
+                    <p class="date">Août 2009 - Juillet 2013</p>
+                </div>
+
+                <h3 class="section-title mt-8">Projets et Engagements</h3>
+                <div class="mb-4">
+                    <p class="job-title">Créateur du site "Le Mid Libre"</p>
+                    <p class="text-gray-700 text-sm">Fondateur d'une plateforme de ressources pour la communauté FLE (professeurs et étudiants) et webmagazine de l'Alliance Française de Mérida.</p>
+                </div>
+                <div>
+                    <p class="job-title">Vice-président du Bureau des Sports</p>
+                    <p class="company">SKEMA Business School</p>
+                    <p class="date">2003 - 2004</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
