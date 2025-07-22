@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Cédric Bernardin</title>
+    <title>CV et Projet - Cédric Bernardin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,10 +14,10 @@
             font-family: 'Lato', sans-serif;
             background-color: #f4f4f9;
         }
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
         }
-        .container {
+        .page-container {
             max-width: 1000px;
             background-color: white;
             margin: 2rem auto;
@@ -25,258 +25,361 @@
             border-radius: 8px;
             overflow: hidden;
         }
-        .main-content {
-            padding: 2.5rem 3rem;
-        }
-        .sidebar {
-            padding: 2.5rem;
-            background-color: #f8fafc;
-        }
-        .header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 2.5rem;
-            text-align: center;
-        }
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 0;
-            letter-spacing: 1px;
-        }
-        .header h2 {
-            font-size: 1.25rem;
-            font-weight: 400;
-            margin-top: 0.5rem;
-            color: #bdc3c7;
-        }
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .job-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #34495e;
-        }
-        .company {
-            font-weight: 600;
-            color: #3498db;
-        }
-        .date {
-            font-style: italic;
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-            color: #34495e;
-        }
-        .contact-item i {
-            width: 20px;
-            color: #3498db;
-            margin-right: 10px;
-        }
-        .skill-category {
-            margin-bottom: 1.5rem;
-        }
-        .skill-category h4 {
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        .project-button {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        .project-button:hover {
-            background-color: #2980b9;
-        }
+        /* Styles CV */
+        .main-content { padding: 2.5rem 3rem; }
+        .sidebar { padding: 2.5rem; background-color: #f8fafc; }
+        .header { background-color: #2c3e50; color: white; padding: 2.5rem; text-align: center; }
+        .header h1 { font-size: 2.5rem; font-weight: 700; margin: 0; letter-spacing: 1px; }
+        .header h2 { font-size: 1.25rem; font-weight: 400; margin-top: 0.5rem; color: #bdc3c7; }
+        .section-title { font-size: 1.5rem; font-weight: 700; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+        .job-title { font-size: 1.1rem; font-weight: 700; color: #34495e; }
+        .job-title a { color: #34495e; text-decoration: none; }
+        .job-title a:hover { color: #3498db; text-decoration: underline; }
+        .company { font-weight: 600; color: #3498db; }
+        .date { font-style: italic; color: #7f8c8d; font-size: 0.9rem; }
+        .contact-item { display: flex; align-items: center; margin-bottom: 0.75rem; color: #34495e; }
+        .contact-item i { width: 20px; color: #3498db; margin-right: 10px; }
+        .skill-category { margin-bottom: 1.5rem; }
+        .skill-category h4 { font-weight: 700; color: #2c3e50; margin-bottom: 0.5rem; }
+        
+        /* Styles Page Projet */
+        .project-page-content { padding: 2rem 3rem; }
+        .project-header { text-align: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 1.5rem; margin-bottom: 2rem; }
+        .project-logo { max-width: 200px; margin: 0 auto 1.5rem auto; display: block; }
+        .project-title { font-size: 2.5rem; font-weight: 700; color: #2c3e50; }
+        .project-subtitle { font-size: 1.2rem; color: #7f8c8d; margin-top: 0.5rem; }
+        .project-content h4 { font-size: 1.25rem; font-weight: 700; color: #3498db; margin-top: 2rem; margin-bottom: 0.75rem; text-align: left; }
+        .project-content p, .project-content ul { margin-bottom: 1rem; line-height: 1.7; color: #34495e; text-align: justify; }
+        .project-content ul { list-style-position: inside; }
+        .button-container { text-align: center; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0; }
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background-color 0.3s, transform 0.2s; cursor: pointer; }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-secondary { background-color: #3498db; color: white; }
+
+        /* Styles des onglets */
+        .tabs { display: flex; justify-content: center; background-color: #eef2f7; padding: 0.5rem; }
+        .tab-button { padding: 0.75rem 1.5rem; border: none; background-color: transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: #7f8c8d; transition: color 0.3s, border-bottom 0.3s; border-bottom: 3px solid transparent; }
+        .tab-button.active { color: #2c3e50; border-bottom: 3px solid #3498db; }
+
         @media (max-width: 768px) {
-            .container {
-                display: block;
-            }
-            .main-content, .sidebar {
-                padding: 1.5rem;
-            }
+            .main-content, .sidebar, .project-page-content { padding: 1.5rem; }
+            .tab-button { padding: 0.75rem 1rem; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Cédric Bernardin</h1>
-            <h2>Professeur de FLE | Traducteur | Concepteur Pédagogique</h2>
-        </div>
-        
-        <div class="md:grid md:grid-cols-3">
-            <!-- Colonne de gauche (Sidebar) -->
-            <div class="sidebar md:col-span-1 border-r border-gray-200">
-                <h3 class="section-title">Contact</h3>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>999 205 51 09</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>ced.bernardin@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Mérida, Yucatan, Mexique</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="hover:text-blue-600">Profil LinkedIn</a>
-                </div>
 
-                <h3 class="section-title mt-8">Compétences</h3>
-                <div class="skill-category">
-                    <h4>Pédagogie</h4>
-                    <p class="text-gray-700 text-sm">Enseignement du FLE, Ingénierie Pédagogique, Pédagogie par Projet, Différenciation, Technologies de l’Éducation.</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Linguistique</h4>
-                    <p class="text-gray-700 text-sm">Traduction Experte (Espagnol <> Français), Interprétariat, Révision et Correction.</p>
-                </div>
-                 <div class="skill-category">
-                    <h4>Gestion de Projet</h4>
-                    <p class="text-gray-700 text-sm">Management de Projets, Consulting, Conception de Produits Touristiques.</p>
-                </div>
-                <div class="skill-category">
-                    <h4>Techniques</h4>
-                    <p class="text-gray-700 text-sm">Création de Contenu, Gestion de Sites (WordPress), Maîtrise des Outils Numériques (LMS, TBI), IA pour l'apprentissage.</p>
-                </div>
+    <!-- Conteneur principal de la page -->
+    <div class="page-container">
 
-                <h3 class="section-title mt-8">Formation</h3>
-                <div>
-                    <p class="job-title">Master 2 | FLE</p>
-                    <p class="company">Université des Antilles</p>
-                    <p class="date">2016 - 2018</p>
+        <!-- VUE CV (visible par défaut) -->
+        <div id="cv-view">
+            <div class="tabs">
+                <button class="tab-button active" onclick="showLang('fr', this)">Français</button>
+                <button class="tab-button" onclick="showLang('es', this)">Español</button>
+                <button class="tab-button" onclick="showLang('en', this)">English</button>
+            </div>
+
+            <!-- Contenu Français CV -->
+            <div id="fr-cv" class="language-content">
+                <div class="header">
+                    <h1>Cédric Bernardin</h1>
+                    <h2>Professeur de FLE | Traducteur | Concepteur Pédagogique</h2>
                 </div>
-                <div class="mt-4">
-                    <p class="job-title">Master 2 | Management</p>
-                    <p class="company">SKEMA Business School</p>
-                    <p class="date">2002 - 2006</p>
-                </div>
-                <div class="mt-4">
-                    <p class="job-title">Classe Préparatoire HEC</p>
-                    <p class="company">Lycée Gay Lussac, Limoges</p>
-                    <p class="date">2000 - 2002</p>
-                </div>
-                <div class="mt-4">
-                    <p class="job-title">Baccalauréat S</p>
-                    <p class="company">Mention Assez Bien</p>
-                    <p class="date">2000</p>
+                <div class="md:grid md:grid-cols-3">
+                    <div class="sidebar md:col-span-1 border-r border-gray-200">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-item"><i class="fas fa-phone"></i><span>999 205 51 09</span></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><span>ced.bernardin@gmail.com</span></div>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Mérida, Yucatan, Mexique</span></div>
+                        <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="hover:text-blue-600">Profil LinkedIn</a></div>
+                        <h3 class="section-title mt-8">Compétences</h3>
+                        <div class="skill-category"><h4>Pédagogie</h4><p class="text-gray-700 text-sm">Enseignement du FLE, Ingénierie Pédagogique, Pédagogie par Projet, Différenciation, Technologies de l’Éducation.</p></div>
+                        <div class="skill-category"><h4>Linguistique</h4><p class="text-gray-700 text-sm">Traduction Experte (Espagnol <> Français), Interprétariat, Révision et Correction.</p></div>
+                        <div class="skill-category"><h4>Gestion de Projet</h4><p class="text-gray-700 text-sm">Management de Projets, Consulting, Conception de Produits Touristiques.</p></div>
+                        <div class="skill-category"><h4>Techniques</h4><p class="text-gray-700 text-sm">Création de Contenu, Gestion de Sites (WordPress), Maîtrise des Outils Numériques (LMS, TBI), IA pour l'apprentissage.</p></div>
+                        <h3 class="section-title mt-8">Formation</h3>
+                        <div><p class="job-title">Master 2 | FLE</p><p class="company">Université des Antilles</p><p class="date">2016 - 2018</p></div>
+                        <div class="mt-4"><p class="job-title">Master 2 | Management</p><p class="company">SKEMA Business School</p><p class="date">2002 - 2006</p></div>
+                        <div class="mt-4"><p class="job-title">Classe Préparatoire HEC</p><p class="company">Lycée Gay Lussac, Limoges</p><p class="date">2000 - 2002</p></div>
+                        <div class="mt-4"><p class="job-title">Baccalauréat S</p><p class="company">Mention Assez Bien</p><p class="date">2000</p></div>
+                    </div>
+                    <div class="main-content md:col-span-2">
+                        <h3 class="section-title">Profil</h3>
+                        <p class="text-gray-700 mb-6">Professionnel passionné et polyvalent avec plus de 15 ans d'expérience dans l'enseignement du français, la traduction spécialisée et la création de contenu pédagogique. Expert dans la conception de programmes engageants et l'utilisation des technologies éducatives, avec une grande sensibilité aux IA, pour favoriser la réussite des étudiants.</p>
+                        <h3 class="section-title">Expérience Professionnelle</h3>
+                        <div class="mb-6"><p class="job-title">Professeur pour le Diplomado “Pays Européens”</p><p class="company">Universidad Anáhuac Mayab | À distance</p><p class="date">Février 2025 - Présent</p></div>
+                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">tuSpeaking | En Ligne</p><p class="date">Octobre 2022 - Présent</p></div>
+                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">Enes Mérida, UNAM</p><p class="date">Février 2020 - Présent</p></div>
+                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">Universidad Anáhuac Mayab</p><p class="date">Janvier 2021 - Juin 2025</p></div>
+                        <div class="mb-6"><p class="job-title">Traducteur Espagnol-Français</p><p class="company">Freelance | Mexique</p><p class="date">Septembre 2010 - Présent</p><p class="text-gray-700 mt-1 text-sm">Traduction de guides touristiques, livres sur les mayas, documents officiels.</p></div>
+                        <div class="mb-6"><p class="job-title">Créateur de Contenus Pédagogiques</p><p class="company">e-Meent</p><p class="date">Février 2020 - Décembre 2020</p></div>
+                        <div class="mb-6"><p class="job-title">Professeur de FLE</p><p class="company">Colégio Teresiano</p><p class="date">Janvier 2019 - Juin 2020</p></div>
+                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">UNAM CEPHCIS</p><p class="date">Septembre 2013 - Août 2019</p></div>
+                        <div class="mb-6"><p class="job-title">Concepteur de Circuits Touristiques & Guide</p><p class="company">ALTER A.C. (Co-fondateur)</p><p class="date">Novembre 2009 - Janvier 2016</p></div>
+                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">Alliance Française de Mérida</p><p class="date">Jan. 2015 - Déc. 2016 & Août 2007 - Mars 2009</p></div>
+                        <div class="mb-6"><p class="job-title">Professeur (Planification Touristique et Écotourisme)</p><p class="company">UVM - Glion (Gastronomie)</p><p class="date">2011 - 2013</p></div>
+                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">Universidad del Valle de México (UVM)</p><p class="date">Août 2009 - Juillet 2013</p></div>
+                        <h3 class="section-title mt-8">Projets et Engagements</h3>
+                        <div class="mb-4">
+                            <p class="job-title">
+                                <a href="https://mayavoicetranslator.com/" target="_blank" title="Visiter le site du projet">Traducteur Maya-Espagnol-Français (MayaVoiceTranslator)</a>
+                            </p>
+                            <p class="text-gray-700 text-sm">Créateur d'un outil de traduction vocale et textuelle pour la langue maya. <a href="#" onclick="showView('project-view'); return false;" class="text-blue-600 hover:underline font-semibold">En savoir plus...</a></p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="job-title">Créateur du site "Le Mid Libre"</p>
+                            <p class="text-gray-700 text-sm">Fondateur d'une plateforme de ressources pour la communauté FLE (professeurs et étudiants) et webmagazine de l'Alliance Française de Mérida.</p>
+                        </div>
+                        <div><p class="job-title">Vice-président du Bureau des Sports</p><p class="company">SKEMA Business School</p><p class="date">2003 - 2004</p></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Colonne de droite (Contenu principal) -->
-            <div class="main-content md:col-span-2">
-                <h3 class="section-title">Profil</h3>
-                <p class="text-gray-700 mb-6">
-                    Professionnel passionné et polyvalent avec plus de 15 ans d'expérience dans l'enseignement du français, la traduction spécialisée et la création de contenu pédagogique. Expert dans la conception de programmes engageants et l'utilisation des technologies éducatives, avec une grande sensibilité aux IA, pour favoriser la réussite des étudiants.
-                </p>
+            <!-- Contenu Espagnol CV -->
+            <div id="es-cv" class="language-content" style="display:none;">
+                <div class="header">
+                    <h1>Cédric Bernardin</h1>
+                    <h2>Profesor de FLE | Traductor | Diseñador Pedagógico</h2>
+                </div>
+                <div class="md:grid md:grid-cols-3">
+                    <div class="sidebar md:col-span-1 border-r border-gray-200">
+                        <h3 class="section-title">Contacto</h3>
+                        <div class="contact-item"><i class="fas fa-phone"></i><span>999 205 51 09</span></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><span>ced.bernardin@gmail.com</span></div>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Mérida, Yucatán, México</span></div>
+                        <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="hover:text-blue-600">Perfil de LinkedIn</a></div>
+                        <h3 class="section-title mt-8">Competencias</h3>
+                        <div class="skill-category"><h4>Pedagogía</h4><p class="text-gray-700 text-sm">Enseñanza de FLE, Ingeniería Pedagógica, Pedagogía por Proyectos, Diferenciación, Tecnologías de la Educación.</p></div>
+                        <div class="skill-category"><h4>Lingüística</h4><p class="text-gray-700 text-sm">Traducción Experta (Español <> Francés), Interpretación, Revisión y Corrección.</p></div>
+                        <div class="skill-category"><h4>Gestión de Proyectos</h4><p class="text-gray-700 text-sm">Gestión de Proyectos, Consultoría, Diseño de Productos Turísticos.</p></div>
+                        <div class="skill-category"><h4>Técnicas</h4><p class="text-gray-700 text-sm">Creación de Contenido, Gestión de Sitios (WordPress), Dominio de Herramientas Digitales (LMS, PDI), IA para el aprendizaje.</p></div>
+                        <h3 class="section-title mt-8">Formación</h3>
+                        <div><p class="job-title">Máster 2 | FLE</p><p class="company">Universidad de las Antillas</p><p class="date">2016 - 2018</p></div>
+                        <div class="mt-4"><p class="job-title">Máster 2 | Management</p><p class="company">SKEMA Business School</p><p class="date">2002 - 2006</p></div>
+                        <div class="mt-4"><p class="job-title">Clase Preparatoria HEC</p><p class="company">Lycée Gay Lussac, Limoges</p><p class="date">2000 - 2002</p></div>
+                        <div class="mt-4"><p class="job-title">Bachillerato S</p><p class="company">Mención "Assez Bien"</p><p class="date">2000</p></div>
+                    </div>
+                    <div class="main-content md:col-span-2">
+                        <h3 class="section-title">Perfil</h3>
+                        <p class="text-gray-700 mb-6">Profesional apasionado y polivalente con más de 15 años de experiencia en la enseñanza del francés, la traducción especializada y la creación de contenido pedagógico. Experto en el diseño de programas atractivos y el uso de tecnologías educativas, con una gran sensibilidad a las IA, para fomentar el éxito de los estudiantes.</p>
+                        <h3 class="section-title">Experiencia Profesional</h3>
+                        <div class="mb-6"><p class="job-title">Profesor para el Diplomado “Países Europeos”</p><p class="company">Universidad Anáhuac Mayab | A distancia</p><p class="date">Febrero 2025 - Presente</p></div>
+                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">tuSpeaking | En línea</p><p class="date">Octubre 2022 - Presente</p></div>
+                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">Enes Mérida, UNAM</p><p class="date">Febrero 2020 - Presente</p></div>
+                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">Universidad Anáhuac Mayab</p><p class="date">Enero 2021 - Junio 2025</p></div>
+                        <div class="mb-6"><p class="job-title">Traductor Español-Francés</p><p class="company">Freelance | México</p><p class="date">Septiembre 2010 - Presente</p><p class="text-gray-700 mt-1 text-sm">Traducción de guías turísticas, libros sobre los mayas, documentos oficiales.</p></div>
+                        <div class="mb-6"><p class="job-title">Creador de Contenidos Pedagógicos</p><p class="company">e-Meent</p><p class="date">Febrero 2020 - Diciembre 2020</p></div>
+                        <div class="mb-6"><p class="job-title">Profesor de FLE</p><p class="company">Colegio Teresiano</p><p class="date">Enero 2019 - Junio 2020</p></div>
+                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">UNAM CEPHCIS</p><p class="date">Septiembre 2013 - Agosto 2019</p></div>
+                        <div class="mb-6"><p class="job-title">Diseñador de Circuitos Turísticos y Guía</p><p class="company">ALTER A.C. (Cofundador)</p><p class="date">Noviembre 2009 - Enero 2016</p></div>
+                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">Alianza Francesa de Mérida</p><p class="date">Ene. 2015 - Dic. 2016 & Ago. 2007 - Mar. 2009</p></div>
+                        <div class="mb-6"><p class="job-title">Profesor (Planificación Turística y Ecoturismo)</p><p class="company">UVM - Glion (Gastronomía)</p><p class="date">2011 - 2013</p></div>
+                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">Universidad del Valle de México (UVM)</p><p class="date">Agosto 2009 - Julio 2013</p></div>
+                        <h3 class="section-title mt-8">Proyectos y Compromisos</h3>
+                        <div class="mb-4">
+                            <p class="job-title">
+                                <a href="https://mayavoicetranslator.com/" target="_blank" title="Visitar el sitio del proyecto">Traductor Maya-Español-Francés (MayaVoiceTranslator)</a>
+                            </p>
+                            <p class="text-gray-700 text-sm">Creador de una herramienta de traducción de voz y texto para el idioma maya. <a href="#" onclick="showView('project-view'); return false;" class="text-blue-600 hover:underline font-semibold">Leer más...</a></p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="job-title">Creador del sitio "Le Mid Libre"</p>
+                            <p class="text-gray-700 text-sm">Fundador de una plataforma de recursos para la comunidad FLE (profesores y estudiantes) y revista web de la Alianza Francesa de Mérida.</p>
+                        </div>
+                        <div><p class="job-title">Vicepresidente del Consejo de Deportes</p><p class="company">SKEMA Business School</p><p class="date">2003 - 2004</p></div>
+                    </div>
+                </div>
+            </div>
 
-                <!-- NOUVELLE SECTION PROJET -->
-                <h3 class="section-title">Projet Phare</h3>
-                <div class="mb-6">
-                    <p class="job-title">MayaVoiceTranslator</p>
-                    <p class="text-gray-700 mt-1 mb-3">
-                        Architecte d'une plateforme numérique collaborative pour la préservation et la revitalisation de la langue maya, fondée sur les principes de souveraineté communautaire et de gouvernance éthique.
-                    </p>
-                    <a href="projet-mayavoice.html" class="project-button">
-                        Découvrir le projet <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
+            <!-- Contenu Anglais CV -->
+            <div id="en-cv" class="language-content" style="display:none;">
+                <div class="header">
+                    <h1>Cédric Bernardin</h1>
+                    <h2>French Teacher (FLE) | Translator | Instructional Designer</h2>
+                </div>
+                <div class="md:grid md:grid-cols-3">
+                    <div class="sidebar md:col-span-1 border-r border-gray-200">
+                        <h3 class="section-title">Contact</h3>
+                        <div class="contact-item"><i class="fas fa-phone"></i><span>999 205 51 09</span></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><span>ced.bernardin@gmail.com</span></div>
+                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Mérida, Yucatan, Mexico</span></div>
+                        <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="hover:text-blue-600">LinkedIn Profile</a></div>
+                        <h3 class="section-title mt-8">Skills</h3>
+                        <div class="skill-category"><h4>Pedagogy</h4><p class="text-gray-700 text-sm">French as a Foreign Language (FLE) Teaching, Instructional Design, Project-Based Learning, Differentiation, Educational Technologies.</p></div>
+                        <div class="skill-category"><h4>Linguistics</h4><p class="text-gray-700 text-sm">Expert Translation (Spanish <> French), Interpreting, Proofreading, and Editing.</p></div>
+                        <div class="skill-category"><h4>Project Management</h4><p class="text-gray-700 text-sm">Project Management, Consulting, Touristic Product Design.</p></div>
+                        <div class="skill-category"><h4>Technical</h4><p class="text-gray-700 text-sm">Content Creation, Website Management (WordPress), Proficiency in Digital Tools (LMS, IWB), AI for learning.</p></div>
+                        <h3 class="section-title mt-8">Education</h3>
+                        <div><p class="job-title">Master's Degree | FLE</p><p class="company">University of the Antilles</p><p class="date">2016 - 2018</p></div>
+                        <div class="mt-4"><p class="job-title">Master's Degree | Management</p><p class="company">SKEMA Business School</p><p class="date">2002 - 2006</p></div>
+                        <div class="mt-4"><p class="job-title">Preparatory Classes HEC</p><p class="company">Lycée Gay Lussac, Limoges</p><p class="date">2000 - 2002</p></div>
+                        <div class="mt-4"><p class="job-title">Scientific Baccalaureate</p><p class="company">With Honors</p><p class="date">2000</p></div>
+                    </div>
+                    <div class="main-content md:col-span-2">
+                        <h3 class="section-title">Profile</h3>
+                        <p class="text-gray-700 mb-6">Passionate and versatile professional with over 15 years of experience in teaching French, specialized translation, and creating educational content. Expert in designing engaging programs and using educational technologies, with a strong sensitivity to AI, to foster student success.</p>
+                        <h3 class="section-title">Professional Experience</h3>
+                        <div class="mb-6"><p class="job-title">Professor for the "European Countries" Diploma</p><p class="company">Universidad Anáhuac Mayab | Remote</p><p class="date">February 2025 - Present</p></div>
+                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">tuSpeaking | Online</p><p class="date">October 2022 - Present</p></div>
+                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">Enes Mérida, UNAM</p><p class="date">February 2020 - Present</p></div>
+                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">Universidad Anáhuac Mayab</p><p class="date">January 2021 - June 2025</p></div>
+                        <div class="mb-6"><p class="job-title">Spanish-French Translator</p><p class="company">Freelance | Mexico</p><p class="date">September 2010 - Present</p><p class="text-gray-700 mt-1 text-sm">Translation of tourist guides, books on Mayan culture, official documents.</p></div>
+                        <div class="mb-6"><p class="job-title">Educational Content Creator</p><p class="company">e-Meent</p><p class="date">February 2020 - December 2020</p></div>
+                        <div class="mb-6"><p class="job-title">FLE Teacher</p><p class="company">Colégio Teresiano</p><p class="date">January 2019 - June 2020</p></div>
+                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">UNAM CEPHCIS</p><p class="date">September 2013 - August 2019</p></div>
+                        <div class="mb-6"><p class="job-title">Tour Designer & Guide</p><p class="company">ALTER A.C. (Co-founder)</p><p class="date">November 2009 - January 2016</p></div>
+                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">Alliance Française de Mérida</p><p class="date">Jan. 2015 - Dec. 2016 & Aug. 2007 - Mar. 2009</p></div>
+                        <div class="mb-6"><p class="job-title">Professor (Tourism Planning and Ecotourism)</p><p class="company">UVM - Glion (Gastronomy)</p><p class="date">2011 - 2013</p></div>
+                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">Universidad del Valle de México (UVM)</p><p class="date">August 2009 - July 2013</p></div>
+                        <h3 class="section-title mt-8">Projects & Involvements</h3>
+                        <div class="mb-4">
+                            <p class="job-title">
+                                <a href="https://mayavoicetranslator.com/" target="_blank" title="Visit the project website">Mayan-Spanish-French Translator (MayaVoiceTranslator)</a>
+                            </p>
+                            <p class="text-gray-700 text-sm">Creator of a voice and text translation tool for the Mayan language. <a href="#" onclick="showView('project-view'); return false;" class="text-blue-600 hover:underline font-semibold">Read more...</a></p>
+                        </div>
+                        <div class="mb-4">
+                            <p class="job-title">Creator of "Le Mid Libre" website</p>
+                            <p class="text-gray-700 text-sm">Founder of a resource platform for the FLE community (teachers and students) and webmagazine for the Alliance Française de Mérida.</p>
+                        </div>
+                        <div><p class="job-title">Vice-President of the Sports Committee</p><p class="company">SKEMA Business School</p><p class="date">2003 - 2004</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VUE PROJET (cachée par défaut) -->
+        <div id="project-view" style="display:none;">
+            <div class="project-page-content">
+                 <div class="tabs">
+                    <button class="tab-button active" onclick="showLangProject('fr-proj', this)">Français</button>
+                    <button class="tab-button" onclick="showLangProject('es-proj', this)">Español</button>
+                    <button class="tab-button" onclick="showLangProject('en-proj', this)">English</button>
+                </div>
+
+                <!-- Contenu Français Projet -->
+                <div id="fr-proj" class="language-content-project">
+                    <div class="project-header">
+                        <img src="http://googleusercontent.com/file_content/1" alt="Logo MayaVoiceTranslator" class="project-logo" onerror="this.style.display='none'">
+                        <h1 class="project-title">MayaVoiceTranslator</h1>
+                        <h2 class="project-subtitle">Briser les barrières linguistiques avec la technologie</h2>
+                    </div>
+                    <div class="project-content">
+                        <h4>La Mission : Plus qu'un Traducteur</h4>
+                        <p>MayaVoiceTranslator est né d'un double constat : la richesse culturelle de la langue maya yucatèque et le fossé numérique qui menace sa transmission. Ce projet n'est pas un simple outil technique ; c'est une initiative visant à créer des ponts. Il s'agit de donner aux voyageurs curieux les moyens d'un échange respectueux, aux professionnels du tourisme un avantage pour un accueil plus authentique, et surtout, d'offrir à la communauté maya un instrument moderne pour valoriser et partager sa langue.</p>
+                        <h4>Gouvernance et Principes Éthiques</h4>
+                        <p>La gouvernance du projet repose sur un principe fondamental : le respect. Chaque décision est guidée par la volonté de servir la communauté et de préserver l'intégrité de la langue.</p>
+                        <ul>
+                            <li><strong>- Approche Communautaire :</strong> Le projet, bien qu'initié personnellement, est ouvert et recherche activement la collaboration avec des locuteurs natifs, des linguistes et des institutions culturelles pour garantir la justesse et la pertinence des traductions.</li>
+                            <li><strong>- Accessibilité :</strong> L'outil est et restera gratuit, assurant que personne ne soit exclu pour des raisons financières. L'objectif est la diffusion, pas le profit.</li>
+                            <li><strong>- Confidentialité des Données :</strong> Aucune conversation ou donnée personnelle n'est enregistrée. La confiance des utilisateurs est primordiale.</li>
+                        </ul>
+                        <h4>La Technologie au service de la Culture</h4>
+                        <p>L'application combine des modèles d'intelligence artificielle pour la reconnaissance vocale et la traduction automatique. Le défi majeur consiste à entraîner ces modèles sur des corpus de données parfois limités pour une langue minoritaire, ce qui implique un travail constant d'amélioration et d'ajustement pour affiner la précision, capturer les nuances et les variantes régionales du maya yucatèque.</p>
+                        <h4>Vision pour l'Avenir</h4>
+                        <p>L'ambition est de faire de MayaVoiceTranslator une référence pour la technologie linguistique maya. Les prochaines étapes incluent l'enrichissement du dictionnaire, l'intégration de modules d'apprentissage (leçons, expressions courantes) et, à terme, l'exploration d'autres variantes de la langue maya pour étendre son impact et sa pertinence.</p>
+                    </div>
+                    <div class="button-container">
+                        <button onclick="showView('cv-view')" class="btn btn-secondary">Retour au CV</button>
+                    </div>
                 </div>
                 
-                <h3 class="section-title">Expérience Professionnelle</h3>
-                <div class="mb-6">
-                    <p class="job-title">Professeur pour le Diplomado “Pays Européens”</p>
-                    <p class="company">Universidad Anáhuac Mayab | À distance</p>
-                    <p class="date">Février 2025 - Présent</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Professeur de Français</p>
-                    <p class="company">tuSpeaking | En Ligne</p>
-                    <p class="date">Octobre 2022 - Présent</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Professeur de Français</p>
-                    <p class="company">Enes Mérida, UNAM</p>
-                    <p class="date">Février 2020 - Présent</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Professeur de Français</p>
-                    <p class="company">Universidad Anáhuac Mayab</p>
-                    <p class="date">Janvier 2021 - Juin 2025</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Traducteur Espagnol-Français</p>
-                    <p class="company">Freelance | Mexique</p>
-                    <p class="date">Septembre 2010 - Présent</p>
-                    <p class="text-gray-700 mt-1 text-sm">Traduction de guides touristiques, livres sur les mayas, documents officiels.</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Créateur de Contenus Pédagogiques</p>
-                    <p class="company">e-Meent</p>
-                    <p class="date">Février 2020 - Décembre 2020</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Professeur de FLE</p>
-                    <p class="company">Colégio Teresiano</p>
-                    <p class="date">Janvier 2019 - Juin 2020</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Professeur de Français</p>
-                    <p class="company">UNAM CEPHCIS</p>
-                    <p class="date">Septembre 2013 - Août 2019</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Concepteur de Circuits Touristiques & Guide</p>
-                    <p class="company">ALTER A.C. (Co-fondateur)</p>
-                    <p class="date">Novembre 2009 - Janvier 2016</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Professeur de Français</p>
-                    <p class="company">Alliance Française de Mérida</p>
-                    <p class="date">Jan. 2015 - Déc. 2016 & Août 2007 - Mars 2009</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Professeur (Planification Touristique et Écotourisme)</p>
-                    <p class="company">UVM - Glion (Gastronomie)</p>
-                    <p class="date">2011 - 2013</p>
-                </div>
-                <div class="mb-6">
-                    <p class="job-title">Professeur de Français</p>
-                    <p class="company">Universidad del Valle de México (UVM)</p>
-                    <p class="date">Août 2009 - Juillet 2013</p>
+                <!-- Contenu Espagnol Projet -->
+                <div id="es-proj" class="language-content-project" style="display:none;">
+                    <div class="project-header">
+                        <img src="http://googleusercontent.com/file_content/1" alt="Logo MayaVoiceTranslator" class="project-logo" onerror="this.style.display='none'">
+                        <h1 class="project-title">MayaVoiceTranslator</h1>
+                        <h2 class="project-subtitle">Rompiendo barreras lingüísticas con tecnología</h2>
+                    </div>
+                    <div class="project-content">
+                        <h4>La Misión: Más que un Traductor</h4>
+                        <p>MayaVoiceTranslator nació de una doble observación: la riqueza cultural de la lengua maya yucateca y la brecha digital que amenaza su transmisión. Este proyecto no es una simple herramienta técnica; es una iniciativa que busca crear puentes. Se trata de dar a los viajeros curiosos los medios para un intercambio respetuoso, a los profesionales del turismo una ventaja para una acogida más auténtica, y sobre todo, de ofrecer a la comunidad maya un instrumento moderno para valorar y compartir su lengua.</p>
+                        <h4>Gobernanza y Principios Éticos</h4>
+                        <p>La gobernanza del proyecto se basa en un principio fundamental: el respeto. Cada decisión está guiada por la voluntad de servir a la comunidad y preservar la integridad del idioma.</p>
+                        <ul>
+                            <li><strong>- Enfoque Comunitario:</strong> Aunque es una iniciativa personal, el proyecto está abierto y busca activamente la colaboración con hablantes nativos, lingüistas e instituciones culturales para garantizar la exactitud y pertinencia de las traducciones.</li>
+                            <li><strong>- Accesibilidad:</strong> La herramienta es y seguirá siendo gratuita, asegurando que nadie quede excluido por razones económicas. El objetivo es la difusión, no el lucro.</li>
+                            <li><strong>- Confidencialidad de los Datos:</strong> No se graba ninguna conversación ni dato personal. La confianza de los usuarios es primordial.</li>
+                        </ul>
+                        <h4>La Tecnología al Servicio de la Cultura</h4>
+                        <p>La aplicación combina modelos de inteligencia artificial para el reconocimiento de voz y la traducción automática. El mayor desafío es entrenar estos modelos con corpus de datos a veces limitados para una lengua minoritaria, lo que implica un trabajo constante de mejora y ajuste para afinar la precisión, capturar los matices y las variantes regionales del maya yucateco.</p>
+                        <h4>Visión para el Futuro</h4>
+                        <p>La ambición es convertir a MayaVoiceTranslator en un referente para la tecnología lingüística maya. Los próximos pasos incluyen enriquecer el diccionario, integrar módulos de aprendizaje (lecciones, frases comunes) y, a largo plazo, explorar otras variantes de la lengua maya para ampliar su impacto y relevancia.</p>
+                    </div>
+                    <div class="button-container">
+                        <button onclick="showView('cv-view')" class="btn btn-secondary">Volver al CV</button>
+                    </div>
                 </div>
 
-                <h3 class="section-title mt-8">Engagements</h3>
-                <div class="mb-4">
-                    <p class="job-title">Créateur du site "Le Mid Libre"</p>
-                    <p class="text-gray-700 text-sm">Fondateur d'une plateforme de ressources pour la communauté FLE (professeurs et étudiants) et webmagazine de l'Alliance Française de Mérida.</p>
-                </div>
-                <div>
-                    <p class="job-title">Vice-président du Bureau des Sports</p>
-                    <p class="company">SKEMA Business School</p>
-                    <p class="date">2003 - 2004</p>
+                <!-- Contenu Anglais Projet -->
+                <div id="en-proj" class="language-content-project" style="display:none;">
+                    <div class="project-header">
+                        <img src="http://googleusercontent.com/file_content/1" alt="MayaVoiceTranslator Logo" class="project-logo" onerror="this.style.display='none'">
+                        <h1 class="project-title">MayaVoiceTranslator</h1>
+                        <h2 class="project-subtitle">Breaking language barriers with technology</h2>
+                    </div>
+                    <div class="project-content">
+                        <h4>The Mission: More Than a Translator</h4>
+                        <p>MayaVoiceTranslator was born from a dual observation: the cultural richness of the Yucatec Mayan language and the digital divide that threatens its transmission. This project is not just a technical tool; it is an initiative aimed at building bridges. It's about giving curious travelers the means for a respectful exchange, providing tourism professionals with an advantage for a more authentic welcome, and above all, offering the Mayan community a modern instrument to value and share their language.</p>
+                        <h4>Governance and Ethical Principles</h4>
+                        <p>The project's governance is based on a fundamental principle: respect. Every decision is guided by the desire to serve the community and preserve the integrity of the language.</p>
+                        <ul>
+                            <li><strong>- Community-Centric Approach:</strong> Although personally initiated, the project is open and actively seeks collaboration with native speakers, linguists, and cultural institutions to ensure the accuracy and relevance of the translations.</li>
+                            <li><strong>- Accessibility:</strong> The tool is and will remain free, ensuring that no one is excluded for financial reasons. The goal is dissemination, not profit.</li>
+                            <li><strong>- Data Privacy:</strong> No conversations or personal data are recorded. User trust is paramount.</li>
+                        </ul>
+                        <h4>Technology at the Service of Culture</h4>
+                        <p>The application combines artificial intelligence models for speech recognition and machine translation. The main challenge is to train these models on sometimes limited data sets for a minority language, which involves constant work of improvement and adjustment to refine accuracy, and capture the nuances and regional variations of Yucatec Maya.</p>
+                        <h4>Vision for the Future</h4>
+                        <p>The ambition is to make MayaVoiceTranslator a benchmark for Mayan language technology. The next steps include enriching the dictionary, integrating learning modules (lessons, common phrases), and, in the long term, exploring other variants of the Mayan language to expand its impact and relevance.</p>
+                    </div>
+                    <div class="button-container">
+                        <button onclick="showView('cv-view')" class="btn btn-secondary">Back to CV</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Fonction pour changer de vue (CV vs Projet)
+        function showView(viewId) {
+            document.getElementById('cv-view').style.display = 'none';
+            document.getElementById('project-view').style.display = 'none';
+            document.getElementById(viewId).style.display = 'block';
+            window.scrollTo(0, 0); // Remonte en haut de la page
+        }
+
+        // Fonction pour les onglets de langue du CV
+        function showLang(lang, element) {
+            // Cacher tous les contenus de langue du CV
+            document.querySelectorAll('#cv-view .language-content').forEach(c => c.style.display = 'none');
+            // Afficher le contenu de la langue sélectionnée
+            document.getElementById(lang + '-cv').style.display = 'block';
+            
+            // Gérer l'état actif des boutons
+            document.querySelectorAll('#cv-view .tab-button').forEach(b => b.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Fonction pour les onglets de langue du Projet
+        function showLangProject(lang, element) {
+            // Cacher tous les contenus de langue du Projet
+            document.querySelectorAll('#project-view .language-content-project').forEach(c => c.style.display = 'none');
+            // Afficher le contenu de la langue sélectionnée
+            document.getElementById(lang).style.display = 'block';
+
+            // Gérer l'état actif des boutons
+            document.querySelectorAll('#project-view .tab-button').forEach(b => b.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Initialisation pour afficher le premier onglet par défaut
+        document.addEventListener('DOMContentLoaded', () => {
+            showLang('fr', document.querySelector('#cv-view .tab-button'));
+            showLangProject('fr-proj', document.querySelector('#project-view .tab-button'));
+        });
+    </script>
 </body>
 </html>
