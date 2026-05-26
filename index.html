@@ -1,384 +1,977 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV et Projet - Cédric Bernardin</title>
+    <title>Cédric Bernardin - Portfolio & CV</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                            dark: '#0f172a',
+                            slate: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
         body {
-            font-family: 'Lato', sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
         }
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
         }
-        .page-container {
-            max-width: 1000px;
-            background-color: white;
-            margin: 2rem auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        /* Styles CV */
-        .main-content { padding: 2.5rem 3rem; }
-        .sidebar { padding: 2.5rem; background-color: #f8fafc; }
-        .header { background-color: #2c3e50; color: white; padding: 2.5rem; text-align: center; }
-        .header h1 { font-size: 2.5rem; font-weight: 700; margin: 0; letter-spacing: 1px; }
-        .header h2 { font-size: 1.25rem; font-weight: 400; margin-top: 0.5rem; color: #bdc3c7; }
-        .section-title { font-size: 1.5rem; font-weight: 700; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
-        .job-title { font-size: 1.1rem; font-weight: 700; color: #34495e; }
-        .job-title a { color: #34495e; text-decoration: none; }
-        .job-title a:hover { color: #3498db; text-decoration: underline; }
-        .company { font-weight: 600; color: #3498db; }
-        .date { font-style: italic; color: #7f8c8d; font-size: 0.9rem; }
-        .contact-item { display: flex; align-items: center; margin-bottom: 0.75rem; color: #34495e; }
-        .contact-item i { width: 20px; color: #3498db; margin-right: 10px; }
-        .skill-category { margin-bottom: 1.5rem; }
-        .skill-category h4 { font-weight: 700; color: #2c3e50; margin-bottom: 0.5rem; }
-        
-        /* Styles Page Projet */
-        .project-page-content { padding: 2rem 3rem; }
-        .project-header { text-align: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 1.5rem; margin-bottom: 2rem; }
-        .project-logo { max-width: 200px; margin: 0 auto 1.5rem auto; display: block; }
-        .project-title { font-size: 2.5rem; font-weight: 700; color: #2c3e50; }
-        .project-subtitle { font-size: 1.2rem; color: #7f8c8d; margin-top: 0.5rem; }
-        .project-content h4 { font-size: 1.25rem; font-weight: 700; color: #3498db; margin-top: 2rem; margin-bottom: 0.75rem; text-align: left; }
-        .project-content p, .project-content ul { margin-bottom: 1rem; line-height: 1.7; color: #34495e; text-align: justify; }
-        .project-content ul { list-style-position: inside; }
-        .button-container { text-align: center; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0; }
-        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background-color 0.3s, transform 0.2s; cursor: pointer; }
-        .btn:hover { transform: translateY(-2px); }
-        .btn-secondary { background-color: #3498db; color: white; }
-
-        /* Styles des onglets */
-        .tabs { display: flex; justify-content: center; background-color: #eef2f7; padding: 0.5rem; }
-        .tab-button { padding: 0.75rem 1.5rem; border: none; background-color: transparent; cursor: pointer; font-size: 1rem; font-weight: 600; color: #7f8c8d; transition: color 0.3s, border-bottom 0.3s; border-bottom: 3px solid transparent; }
-        .tab-button.active { color: #2c3e50; border-bottom: 3px solid #3498db; }
-
-        @media (max-width: 768px) {
-            .main-content, .sidebar, .project-page-content { padding: 1.5rem; }
-            .tab-button { padding: 0.75rem 1rem; font-size: 0.9rem; }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        /* Custom transitions */
+        .hover-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <!-- Conteneur principal de la page -->
-    <div class="page-container">
-
-        <!-- VUE CV (visible par défaut) -->
-        <div id="cv-view">
-            <div class="tabs">
-                <button class="tab-button active" onclick="showLang('fr', this)">Français</button>
-                <button class="tab-button" onclick="showLang('es', this)">Español</button>
-                <button class="tab-button" onclick="showLang('en', this)">English</button>
-            </div>
-
-            <!-- Contenu Français CV -->
-            <div id="fr-cv" class="language-content">
-                <div class="header">
-                    <h1>Cédric Bernardin</h1>
-                    <h2>Professeur de FLE | Traducteur | Concepteur Pédagogique</h2>
-                </div>
-                <div class="md:grid md:grid-cols-3">
-                    <div class="sidebar md:col-span-1 border-r border-gray-200">
-                        <h3 class="section-title">Contact</h3>
-                        <div class="contact-item"><i class="fas fa-phone"></i><span>999 205 51 09</span></div>
-                        <div class="contact-item"><i class="fas fa-envelope"></i><span>ced.bernardin@gmail.com</span></div>
-                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Mérida, Yucatan, Mexique</span></div>
-                        <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="hover:text-blue-600">Profil LinkedIn</a></div>
-                        <h3 class="section-title mt-8">Compétences</h3>
-                        <div class="skill-category"><h4>Pédagogie</h4><p class="text-gray-700 text-sm">Enseignement du FLE, Ingénierie Pédagogique, Pédagogie par Projet, Différenciation, Technologies de l’Éducation.</p></div>
-                        <div class="skill-category"><h4>Linguistique</h4><p class="text-gray-700 text-sm">Traduction Experte (Espagnol <> Français), Interprétariat, Révision et Correction.</p></div>
-                        <div class="skill-category"><h4>Gestion de Projet</h4><p class="text-gray-700 text-sm">Management de Projets, Consulting, Conception de Produits Touristiques.</p></div>
-                        <div class="skill-category"><h4>Techniques</h4><p class="text-gray-700 text-sm">Création de Contenu, Gestion de Sites (WordPress), Maîtrise des Outils Numériques (LMS, TBI), IA pour l'apprentissage.</p></div>
-                        <h3 class="section-title mt-8">Formation</h3>
-                        <div><p class="job-title">Master 2 | FLE</p><p class="company">Université des Antilles</p><p class="date">2016 - 2018</p></div>
-                        <div class="mt-4"><p class="job-title">Master 2 | Management</p><p class="company">SKEMA Business School</p><p class="date">2002 - 2006</p></div>
-                        <div class="mt-4"><p class="job-title">Classe Préparatoire HEC</p><p class="company">Lycée Gay Lussac, Limoges</p><p class="date">2000 - 2002</p></div>
-                        <div class="mt-4"><p class="job-title">Baccalauréat S</p><p class="company">Mention Assez Bien</p><p class="date">2000</p></div>
-                    </div>
-                    <div class="main-content md:col-span-2">
-                        <h3 class="section-title">Profil</h3>
-                        <p class="text-gray-700 mb-6 text-justify">Professionnel passionné et polyvalent avec plus de 15 ans d'expérience dans l'enseignement du français, la traduction spécialisée et la création de contenu pédagogique. Expert dans la conception de programmes engageants et l'utilisation des technologies éducatives, avec une grande sensibilité aux IA, pour favoriser la réussite des étudiants.</p>
-                        <h3 class="section-title">Expérience Professionnelle</h3>
-                        <div class="mb-6"><p class="job-title">Professeur pour le Diplomado “Pays Européens”</p><p class="company">Universidad Anáhuac Mayab | À distance</p><p class="date">Février 2025 - Présent</p></div>
-                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">tuSpeaking | En Ligne</p><p class="date">Octobre 2022 - Présent</p></div>
-                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">Enes Mérida, UNAM</p><p class="date">Février 2020 - Présent</p></div>
-                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">Universidad Anáhuac Mayab</p><p class="date">Janvier 2021 - Juin 2025</p></div>
-                        <div class="mb-6"><p class="job-title">Traducteur Espagnol-Français</p><p class="company">Freelance | Mexique</p><p class="date">Septembre 2010 - Présent</p><p class="text-gray-700 mt-1 text-sm">Traduction de guides touristiques, livres sur les mayas, documents officiels.</p></div>
-                        <div class="mb-6"><p class="job-title">Créateur de Contenus Pédagogiques</p><p class="company">e-Meent</p><p class="date">Février 2020 - Décembre 2020</p></div>
-                        <div class="mb-6"><p class="job-title">Professeur de FLE</p><p class="company">Colégio Teresiano</p><p class="date">Janvier 2019 - Juin 2020</p></div>
-                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">UNAM CEPHCIS</p><p class="date">Septembre 2013 - Août 2019</p></div>
-                        <div class="mb-6"><p class="job-title">Concepteur de Circuits Touristiques & Guide</p><p class="company">ALTER A.C. (Co-fondateur)</p><p class="date">Novembre 2009 - Janvier 2016</p></div>
-                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">Alliance Française de Mérida</p><p class="date">Jan. 2015 - Déc. 2016 & Août 2007 - Mars 2009</p></div>
-                        <div class="mb-6"><p class="job-title">Professeur (Planification Touristique et Écotourisme)</p><p class="company">UVM - Glion (Gastronomie)</p><p class="date">2011 - 2013</p></div>
-                        <div class="mb-6"><p class="job-title">Professeur de Français</p><p class="company">Universidad del Valle de México (UVM)</p><p class="date">Août 2009 - Juillet 2013</p></div>
-                        <h3 class="section-title mt-8">Projets et Engagements</h3>
-                        <div class="mb-4">
-                            <p class="job-title">
-                                <a href="https://mayavoicetranslator.com/" target="_blank" title="Visiter le site du projet">Traducteur Maya-Espagnol-Français (MayaVoiceTranslator)</a>
-                            </p>
-                            <p class="text-gray-700 text-sm">Créateur d'un outil de traduction vocale et textuelle pour la langue maya. <a href="#" onclick="showView('project-view'); return false;" class="text-blue-600 hover:underline font-semibold">En savoir plus...</a></p>
-                        </div>
-                        <div class="mb-4">
-                            <p class="job-title">Créateur du site "Le Mid Libre"</p>
-                            <p class="text-gray-700 text-sm">Fondateur d'une plateforme de ressources pour la communauté FLE (professeurs et étudiants) et webmagazine de l'Alliance Française de Mérida.</p>
-                        </div>
-                        <div><p class="job-title">Vice-président du Bureau des Sports</p><p class="company">SKEMA Business School</p><p class="date">2003 - 2004</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contenu Espagnol CV -->
-            <div id="es-cv" class="language-content" style="display:none;">
-                <div class="header">
-                    <h1>Cédric Bernardin</h1>
-                    <h2>Profesor de FLE | Traductor | Diseñador Pedagógico</h2>
-                </div>
-                <div class="md:grid md:grid-cols-3">
-                    <div class="sidebar md:col-span-1 border-r border-gray-200">
-                        <h3 class="section-title">Contacto</h3>
-                        <div class="contact-item"><i class="fas fa-phone"></i><span>999 205 51 09</span></div>
-                        <div class="contact-item"><i class="fas fa-envelope"></i><span>ced.bernardin@gmail.com</span></div>
-                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Mérida, Yucatán, México</span></div>
-                        <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="hover:text-blue-600">Perfil de LinkedIn</a></div>
-                        <h3 class="section-title mt-8">Competencias</h3>
-                        <div class="skill-category"><h4>Pedagogía</h4><p class="text-gray-700 text-sm">Enseñanza de FLE, Ingeniería Pedagógica, Pedagogía por Proyectos, Diferenciación, Tecnologías de la Educación.</p></div>
-                        <div class="skill-category"><h4>Lingüística</h4><p class="text-gray-700 text-sm">Traducción Experta (Español <> Francés), Interpretación, Revisión y Corrección.</p></div>
-                        <div class="skill-category"><h4>Gestión de Proyectos</h4><p class="text-gray-700 text-sm">Gestión de Proyectos, Consultoría, Diseño de Productos Turísticos.</p></div>
-                        <div class="skill-category"><h4>Técnicas</h4><p class="text-gray-700 text-sm">Creación de Contenido, Gestión de Sitios (WordPress), Dominio de Herramientas Digitales (LMS, PDI), IA para el aprendizaje.</p></div>
-                        <h3 class="section-title mt-8">Formación</h3>
-                        <div><p class="job-title">Máster 2 | FLE</p><p class="company">Universidad de las Antillas</p><p class="date">2016 - 2018</p></div>
-                        <div class="mt-4"><p class="job-title">Máster 2 | Management</p><p class="company">SKEMA Business School</p><p class="date">2002 - 2006</p></div>
-                        <div class="mt-4"><p class="job-title">Clase Preparatoria HEC</p><p class="company">Lycée Gay Lussac, Limoges</p><p class="date">2000 - 2002</p></div>
-                        <div class="mt-4"><p class="job-title">Bachillerato S</p><p class="company">Mención "Assez Bien"</p><p class="date">2000</p></div>
-                    </div>
-                    <div class="main-content md:col-span-2">
-                        <h3 class="section-title">Perfil</h3>
-                        <p class="text-gray-700 mb-6 text-justify">Profesional apasionado y polivalente con más de 15 años de experiencia en la enseñanza del francés, la traducción especializada y la creación de contenido pedagógico. Experto en el diseño de programas atractivos y el uso de tecnologías educativas, con una gran sensibilidad a las IA, para fomentar el éxito de los estudiantes.</p>
-                        <h3 class="section-title">Experiencia Profesional</h3>
-                        <div class="mb-6"><p class="job-title">Profesor para el Diplomado “Países Europeos”</p><p class="company">Universidad Anáhuac Mayab | A distancia</p><p class="date">Febrero 2025 - Presente</p></div>
-                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">tuSpeaking | En línea</p><p class="date">Octubre 2022 - Presente</p></div>
-                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">Enes Mérida, UNAM</p><p class="date">Febrero 2020 - Presente</p></div>
-                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">Universidad Anáhuac Mayab</p><p class="date">Enero 2021 - Junio 2025</p></div>
-                        <div class="mb-6"><p class="job-title">Traductor Español-Francés</p><p class="company">Freelance | México</p><p class="date">Septiembre 2010 - Presente</p><p class="text-gray-700 mt-1 text-sm">Traducción de guías turísticas, libros sobre los mayas, documentos oficiales.</p></div>
-                        <div class="mb-6"><p class="job-title">Creador de Contenidos Pedagógicos</p><p class="company">e-Meent</p><p class="date">Febrero 2020 - Diciembre 2020</p></div>
-                        <div class="mb-6"><p class="job-title">Profesor de FLE</p><p class="company">Colegio Teresiano</p><p class="date">Enero 2019 - Junio 2020</p></div>
-                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">UNAM CEPHCIS</p><p class="date">Septiembre 2013 - Agosto 2019</p></div>
-                        <div class="mb-6"><p class="job-title">Diseñador de Circuitos Turísticos y Guía</p><p class="company">ALTER A.C. (Cofundador)</p><p class="date">Noviembre 2009 - Enero 2016</p></div>
-                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">Alianza Francesa de Mérida</p><p class="date">Ene. 2015 - Dic. 2016 & Ago. 2007 - Mar. 2009</p></div>
-                        <div class="mb-6"><p class="job-title">Profesor (Planificación Turística y Ecoturismo)</p><p class="company">UVM - Glion (Gastronomía)</p><p class="date">2011 - 2013</p></div>
-                        <div class="mb-6"><p class="job-title">Profesor de Francés</p><p class="company">Universidad del Valle de México (UVM)</p><p class="date">Agosto 2009 - Julio 2013</p></div>
-                        <h3 class="section-title mt-8">Proyectos y Compromisos</h3>
-                        <div class="mb-4">
-                            <p class="job-title">
-                                <a href="https://mayavoicetranslator.com/" target="_blank" title="Visitar el sitio del proyecto">Traductor Maya-Español-Francés (MayaVoiceTranslator)</a>
-                            </p>
-                            <p class="text-gray-700 text-sm">Creador de una herramienta de traducción de voz y texto para el idioma maya. <a href="#" onclick="showView('project-view'); return false;" class="text-blue-600 hover:underline font-semibold">Leer más...</a></p>
-                        </div>
-                        <div class="mb-4">
-                            <p class="job-title">Creador del sitio "Le Mid Libre"</p>
-                            <p class="text-gray-700 text-sm">Fundador de una plataforma de recursos para la comunidad FLE (profesores y estudiantes) y revista web de la Alianza Francesa de Mérida.</p>
-                        </div>
-                        <div><p class="job-title">Vicepresidente del Consejo de Deportes</p><p class="company">SKEMA Business School</p><p class="date">2003 - 2004</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contenu Anglais CV -->
-            <div id="en-cv" class="language-content" style="display:none;">
-                <div class="header">
-                    <h1>Cédric Bernardin</h1>
-                    <h2>French Teacher (FLE) | Translator | Instructional Designer</h2>
-                </div>
-                <div class="md:grid md:grid-cols-3">
-                    <div class="sidebar md:col-span-1 border-r border-gray-200">
-                        <h3 class="section-title">Contact</h3>
-                        <div class="contact-item"><i class="fas fa-phone"></i><span>999 205 51 09</span></div>
-                        <div class="contact-item"><i class="fas fa-envelope"></i><span>ced.bernardin@gmail.com</span></div>
-                        <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Mérida, Yucatan, Mexico</span></div>
-                        <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="hover:text-blue-600">LinkedIn Profile</a></div>
-                        <h3 class="section-title mt-8">Skills</h3>
-                        <div class="skill-category"><h4>Pedagogy</h4><p class="text-gray-700 text-sm">French as a Foreign Language (FLE) Teaching, Instructional Design, Project-Based Learning, Differentiation, Educational Technologies.</p></div>
-                        <div class="skill-category"><h4>Linguistics</h4><p class="text-gray-700 text-sm">Expert Translation (Spanish <> French), Interpreting, Proofreading, and Editing.</p></div>
-                        <div class="skill-category"><h4>Project Management</h4><p class="text-gray-700 text-sm">Project Management, Consulting, Touristic Product Design.</p></div>
-                        <div class="skill-category"><h4>Technical</h4><p class="text-gray-700 text-sm">Content Creation, Website Management (WordPress), Proficiency in Digital Tools (LMS, IWB), AI for learning.</p></div>
-                        <h3 class="section-title mt-8">Education</h3>
-                        <div><p class="job-title">Master's Degree | FLE</p><p class="company">University of the Antilles</p><p class="date">2016 - 2018</p></div>
-                        <div class="mt-4"><p class="job-title">Master's Degree | Management</p><p class="company">SKEMA Business School</p><p class="date">2002 - 2006</p></div>
-                        <div class="mt-4"><p class="job-title">Preparatory Classes HEC</p><p class="company">Lycée Gay Lussac, Limoges</p><p class="date">2000 - 2002</p></div>
-                        <div class="mt-4"><p class="job-title">Scientific Baccalaureate</p><p class="company">With Honors</p><p class="date">2000</p></div>
-                    </div>
-                    <div class="main-content md:col-span-2">
-                        <h3 class="section-title">Profile</h3>
-                        <p class="text-gray-700 mb-6 text-justify">Passionate and versatile professional with over 15 years of experience in teaching French, specialized translation, and creating educational content. Expert in designing engaging programs and using educational technologies, with a strong sensitivity to AI, to foster student success.</p>
-                        <h3 class="section-title">Professional Experience</h3>
-                        <div class="mb-6"><p class="job-title">Professor for the "European Countries" Diploma</p><p class="company">Universidad Anáhuac Mayab | Remote</p><p class="date">February 2025 - Present</p></div>
-                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">tuSpeaking | Online</p><p class="date">October 2022 - Present</p></div>
-                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">Enes Mérida, UNAM</p><p class="date">February 2020 - Present</p></div>
-                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">Universidad Anáhuac Mayab</p><p class="date">January 2021 - June 2025</p></div>
-                        <div class="mb-6"><p class="job-title">Spanish-French Translator</p><p class="company">Freelance | Mexico</p><p class="date">September 2010 - Present</p><p class="text-gray-700 mt-1 text-sm">Translation of tourist guides, books on Mayan culture, official documents.</p></div>
-                        <div class="mb-6"><p class="job-title">Educational Content Creator</p><p class="company">e-Meent</p><p class="date">February 2020 - December 2020</p></div>
-                        <div class="mb-6"><p class="job-title">FLE Teacher</p><p class="company">Colégio Teresiano</p><p class="date">January 2019 - June 2020</p></div>
-                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">UNAM CEPHCIS</p><p class="date">September 2013 - August 2019</p></div>
-                        <div class="mb-6"><p class="job-title">Tour Designer & Guide</p><p class="company">ALTER A.C. (Co-founder)</p><p class="date">November 2009 - January 2016</p></div>
-                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">Alliance Française de Mérida</p><p class="date">Jan. 2015 - Dec. 2016 & Aug. 2007 - Mar. 2009</p></div>
-                        <div class="mb-6"><p class="job-title">Professor (Tourism Planning and Ecotourism)</p><p class="company">UVM - Glion (Gastronomy)</p><p class="date">2011 - 2013</p></div>
-                        <div class="mb-6"><p class="job-title">French Teacher</p><p class="company">Universidad del Valle de México (UVM)</p><p class="date">August 2009 - July 2013</p></div>
-                        <h3 class="section-title mt-8">Projects & Involvements</h3>
-                        <div class="mb-4">
-                            <p class="job-title">
-                                <a href="https://mayavoicetranslator.com/" target="_blank" title="Visit the project website">Mayan-Spanish-French Translator (MayaVoiceTranslator)</a>
-                            </p>
-                            <p class="text-gray-700 text-sm">Creator of a voice and text translation tool for the Mayan language. <a href="#" onclick="showView('project-view'); return false;" class="text-blue-600 hover:underline font-semibold">Read more...</a></p>
-                        </div>
-                        <div class="mb-4">
-                            <p class="job-title">Creator of "Le Mid Libre" website</p>
-                            <p class="text-gray-700 text-sm">Founder of a resource platform for the FLE community (teachers and students) and webmagazine for the Alliance Française de Mérida.</p>
-                        </div>
-                        <div><p class="job-title">Vice-President of the Sports Committee</p><p class="company">SKEMA Business School</p><p class="date">2003 - 2004</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- VUE PROJET (cachée par défaut) -->
-        <div id="project-view" style="display:none;">
-            <div class="project-page-content">
-                 <div class="tabs">
-                    <button class="tab-button active" onclick="showLangProject('fr-proj', this)">Français</button>
-                    <button class="tab-button" onclick="showLangProject('es-proj', this)">Español</button>
-                    <button class="tab-button" onclick="showLangProject('en-proj', this)">English</button>
-                </div>
-
-                <!-- Contenu Français Projet -->
-                <div id="fr-proj" class="language-content-project">
-                    <div class="project-header">
-                        <img src="http://googleusercontent.com/file_content/1" alt="Logo MayaVoiceTranslator" class="project-logo" onerror="this.style.display='none'">
-                        <h1 class="project-title">MayaVoiceTranslator</h1>
-                        <h2 class="project-subtitle">Briser les barrières linguistiques avec la technologie</h2>
-                    </div>
-                    <div class="project-content">
-                        <h4>La Mission : Plus qu'un Traducteur</h4>
-                        <p>MayaVoiceTranslator est né d'un double constat : la richesse culturelle de la langue maya yucatèque et le fossé numérique qui menace sa transmission. Ce projet n'est pas un simple outil technique ; c'est une initiative visant à créer des ponts. Il s'agit de donner aux voyageurs curieux les moyens d'un échange respectueux, aux professionnels du tourisme un avantage pour un accueil plus authentique, et surtout, d'offrir à la communauté maya un instrument moderne pour valoriser et partager sa langue.</p>
-                        <h4>Gouvernance et Principes Éthiques</h4>
-                        <p>La gouvernance du projet repose sur un principe fondamental : le respect. Chaque décision est guidée par la volonté de servir la communauté et de préserver l'intégrité de la langue.</p>
-                        <ul>
-                            <li><strong>- Approche Communautaire :</strong> Le projet, bien qu'initié personnellement, est ouvert et recherche activement la collaboration avec des locuteurs natifs, des linguistes et des institutions culturelles pour garantir la justesse et la pertinence des traductions.</li>
-                            <li><strong>- Accessibilité :</strong> L'outil est et restera gratuit, assurant que personne ne soit exclu pour des raisons financières. L'objectif est la diffusion, pas le profit.</li>
-                            <li><strong>- Confidentialité des Données :</strong> Aucune conversation ou donnée personnelle n'est enregistrée. La confiance des utilisateurs est primordiale.</li>
-                        </ul>
-                        <h4>La Technologie au service de la Culture</h4>
-                        <p>L'application combine des modèles d'intelligence artificielle pour la reconnaissance vocale et la traduction automatique. Le défi majeur consiste à entraîner ces modèles sur des corpus de données parfois limités pour une langue minoritaire, ce qui implique un travail constant d'amélioration et d'ajustement pour affiner la précision, capturer les nuances et les variantes régionales du maya yucatèque.</p>
-                        <h4>Vision pour l'Avenir</h4>
-                        <p>L'ambition est de faire de MayaVoiceTranslator une référence pour la technologie linguistique maya. Les prochaines étapes incluent l'enrichissement du dictionnaire, l'intégration de modules d'apprentissage (leçons, expressions courantes) et, à terme, l'exploration d'autres variantes de la langue maya pour étendre son impact et sa pertinence.</p>
-                    </div>
-                    <div class="button-container">
-                        <button onclick="showView('cv-view')" class="btn btn-secondary">Retour au CV</button>
-                    </div>
-                </div>
-                
-                <!-- Contenu Espagnol Projet -->
-                <div id="es-proj" class="language-content-project" style="display:none;">
-                    <div class="project-header">
-                        <img src="http://googleusercontent.com/file_content/1" alt="Logo MayaVoiceTranslator" class="project-logo" onerror="this.style.display='none'">
-                        <h1 class="project-title">MayaVoiceTranslator</h1>
-                        <h2 class="project-subtitle">Rompiendo barreras lingüísticas con tecnología</h2>
-                    </div>
-                    <div class="project-content">
-                        <h4>La Misión: Más que un Traductor</h4>
-                        <p>MayaVoiceTranslator nació de una doble observación: la riqueza cultural de la lengua maya yucateca y la brecha digital que amenaza su transmisión. Este proyecto no es una simple herramienta técnica; es una iniciativa que busca crear puentes. Se trata de dar a los viajeros curiosos los medios para un intercambio respetuoso, a los profesionales del turismo una ventaja para una acogida más auténtica, y sobre todo, de ofrecer a la comunidad maya un instrumento moderno para valorar y compartir su lengua.</p>
-                        <h4>Gobernanza y Principios Éticos</h4>
-                        <p>La gobernanza del proyecto se basa en un principio fundamental: el respeto. Cada decisión está guiada por la voluntad de servir a la comunidad y preservar la integridad del idioma.</p>
-                        <ul>
-                            <li><strong>- Enfoque Comunitario:</strong> Aunque es una iniciativa personal, el proyecto está abierto y busca activamente la colaboración con hablantes nativos, lingüistas e instituciones culturales para garantizar la exactitud y pertinencia de las traducciones.</li>
-                            <li><strong>- Accesibilidad:</strong> La herramienta es y seguirá siendo gratuita, asegurando que nadie quede excluido por razones económicas. El objetivo es la difusión, no el lucro.</li>
-                            <li><strong>- Confidencialidad de los Datos:</strong> No se graba ninguna conversación ni dato personal. La confianza de los usuarios es primordial.</li>
-                        </ul>
-                        <h4>La Tecnología al Servicio de la Cultura</h4>
-                        <p>La aplicación combina modelos de inteligencia artificial para el reconocimiento de voz y la traducción automática. El mayor desafío es entrenar estos modelos con corpus de datos a veces limitados para una lengua minoritaria, lo que implica un trabajo constante de mejora y ajuste para afinar la precisión, capturar los matices y las variantes regionales del maya yucateco.</p>
-                        <h4>Visión para el Futuro</h4>
-                        <p>La ambición es convertir a MayaVoiceTranslator en un referente para la tecnología lingüística maya. Los próximos pasos incluyen enriquecer el diccionario, integrar módulos de aprendizaje (lecciones, frases comunes) y, a largo plazo, explorar otras variantes de la lengua maya para ampliar su impacto y relevancia.</p>
-                    </div>
-                    <div class="button-container">
-                        <button onclick="showView('cv-view')" class="btn btn-secondary">Volver al CV</button>
-                    </div>
-                </div>
-
-                <!-- Contenu Anglais Projet -->
-                <div id="en-proj" class="language-content-project" style="display:none;">
-                    <div class="project-header">
-                        <img src="http://googleusercontent.com/file_content/1" alt="MayaVoiceTranslator Logo" class="project-logo" onerror="this.style.display='none'">
-                        <h1 class="project-title">MayaVoiceTranslator</h1>
-                        <h2 class="project-subtitle">Breaking language barriers with technology</h2>
-                    </div>
-                    <div class="project-content">
-                        <h4>The Mission: More Than a Translator</h4>
-                        <p>MayaVoiceTranslator was born from a dual observation: the cultural richness of the Yucatec Mayan language and the digital divide that threatens its transmission. This project is not just a technical tool; it is an initiative aimed at building bridges. It's about giving curious travelers the means for a respectful exchange, providing tourism professionals with an advantage for a more authentic welcome, and above all, offering the Mayan community a modern instrument to value and share their language.</p>
-                        <h4>Governance and Ethical Principles</h4>
-                        <p>The project's governance is based on a fundamental principle: respect. Every decision is guided by the desire to serve the community and preserve the integrity of the language.</p>
-                        <ul>
-                            <li><strong>- Community-Centric Approach:</strong> Although personally initiated, the project is open and actively seeks collaboration with native speakers, linguists, and cultural institutions to ensure the accuracy and relevance of the translations.</li>
-                            <li><strong>- Accessibility:</strong> The tool is and will remain free, ensuring that no one is excluded for financial reasons. The goal is dissemination, not profit.</li>
-                            <li><strong>- Data Privacy:</strong> No conversations or personal data are recorded. User trust is paramount.</li>
-                        </ul>
-                        <h4>Technology at the Service of Culture</h4>
-                        <p>The application combines artificial intelligence models for speech recognition and machine translation. The main challenge is to train these models on sometimes limited data sets for a minority language, which involves constant work of improvement and adjustment to refine accuracy, and capture the nuances and regional variations of Yucatec Maya.</p>
-                        <h4>Vision for the Future</h4>
-                        <p>The ambition is to make MayaVoiceTranslator a benchmark for Mayan language technology. The next steps include enriching the dictionary, integrating learning modules (lessons, common phrases), and, in the long term, exploring other variants of the Mayan language to expand its impact and relevance.</p>
-                    </div>
-                    <div class="button-container">
-                        <button onclick="showView('cv-view')" class="btn btn-secondary">Back to CV</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Fonction pour changer de vue (CV vs Projet)
-        function showView(viewId) {
-            document.getElementById('cv-view').style.display = 'none';
-            document.getElementById('project-view').style.display = 'none';
-            document.getElementById(viewId).style.display = 'block';
-            window.scrollTo(0, 0); // Remonte en haut de la page
-        }
-
-        // Fonction pour les onglets de langue du CV
-        function showLang(lang, element) {
-            // Cacher tous les contenus de langue du CV
-            document.querySelectorAll('#cv-view .language-content').forEach(c => c.style.display = 'none');
-            // Afficher le contenu de la langue sélectionnée
-            document.getElementById(lang + '-cv').style.display = 'block';
+    <!-- BARRE DE NAVIGATION (FIXE & GLASS) -->
+    <header class="sticky top-0 z-50 glass border-b border-slate-200/80 w-full transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" onclick="showView('cv-view'); return false;" class="flex flex-col">
+                <span class="font-bold text-lg text-brand-dark tracking-tight">Cédric Bernardin</span>
+                <span class="text-xs text-brand-600 font-medium">
+                    <span class="lang-fr">Enseignant FLE | Traducteur | Concepteur</span>
+                    <span class="lang-es">Profesor de FLE | Traductor | Diseñador</span>
+                    <span class="lang-en">French Teacher | Translator | Designer</span>
+                </span>
+            </a>
             
-            // Gérer l'état actif des boutons
-            document.querySelectorAll('#cv-view .tab-button').forEach(b => b.classList.remove('active'));
-            element.classList.add('active');
+            <nav class="flex items-center space-x-1 sm:space-x-4">
+                <a href="#" id="nav-link-cv-view" onclick="showView('cv-view'); return false;" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg border-b-2 border-brand-600 text-brand-600 transition-colors">
+                    <span class="lang-fr">CV / Expérience</span>
+                    <span class="lang-es">CV / Experiencia</span>
+                    <span class="lang-en">CV / Experience</span>
+                </a>
+                <a href="#" id="nav-link-projects-grid-view" onclick="showView('projects-grid-view'); return false;" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg border-b-2 border-transparent text-slate-600 hover:text-slate-900 transition-colors">
+                    <span class="lang-fr">Projets / Portfolio</span>
+                    <span class="lang-es">Proyectos / Portafolio</span>
+                    <span class="lang-en">Projects / Portfolio</span>
+                </a>
+                
+                <!-- Séparateur -->
+                <div class="h-6 w-px bg-slate-200 mx-2"></div>
+                
+                <!-- Sélecteur de langue global -->
+                <div class="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg">
+                    <button onclick="setLanguage('fr')" class="lang-btn lang-btn-fr px-2 py-1 text-xs font-bold rounded bg-brand-600 text-white shadow-sm transition-all duration-200">FR</button>
+                    <button onclick="setLanguage('es')" class="lang-btn lang-btn-es px-2 py-1 text-xs font-bold rounded text-slate-600 hover:bg-slate-200 transition-all duration-200">ES</button>
+                    <button onclick="setLanguage('en')" class="lang-btn lang-btn-en px-2 py-1 text-xs font-bold rounded text-slate-600 hover:bg-slate-200 transition-all duration-200">EN</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENEUR PRINCIPAL -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- ================= VUE CV ================= -->
+        <div id="cv-view" class="transition-opacity duration-300">
+            <!-- Header du profil avec fond dégradé -->
+            <div class="bg-gradient-to-r from-brand-900 via-brand-dark to-brand-slate text-white rounded-2xl p-6 sm:p-10 shadow-xl mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Cédric Bernardin</h1>
+                    <p class="text-lg sm:text-xl text-slate-300 font-light mt-2">
+                        <span class="lang-fr">Professeur de FLE | Traducteur | Concepteur Pédagogique</span>
+                        <span class="lang-es">Profesor de FLE | Traductor | Diseñador Pedagógico</span>
+                        <span class="lang-en">French Teacher (FLE) | Translator | Instructional Designer</span>
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-6 text-sm text-slate-300">
+                        <div class="flex items-center"><i class="fas fa-map-marker-alt text-brand-500 mr-2"></i>Mérida, Yucatan, Mexique</div>
+                        <div class="flex items-center"><i class="fas fa-envelope text-brand-500 mr-2"></i>ced.bernardin@gmail.com</div>
+                        <div class="flex items-center"><i class="fas fa-phone text-brand-500 mr-2"></i>999 205 51 09</div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="https://www.linkedin.com/in/c%C3%A9dric-bernardin-a10779132" target="_blank" class="flex items-center justify-center px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 transition-all font-semibold text-sm">
+                        <i class="fab fa-linkedin text-lg mr-2"></i>LinkedIn
+                    </a>
+                    <button onclick="showView('projects-grid-view')" class="flex items-center justify-center px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm shadow-lg hover:shadow-brand-600/30 transition-all">
+                        <i class="fas fa-project-diagram mr-2"></i>
+                        <span class="lang-fr">Voir mes projets</span>
+                        <span class="lang-es">Ver mis proyectos</span>
+                        <span class="lang-en">View my projects</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grille 3 colonnes : Sidebar (1/3) + Contenu principal (2/3) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- SIDEBAR -->
+                <div class="space-y-8 md:col-span-1">
+                    
+                    <!-- PROFIL RÉSUMÉ -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-dark border-b-2 border-brand-500 pb-2 mb-4 flex items-center">
+                            <i class="fas fa-user-tie text-brand-600 mr-2"></i>
+                            <span class="lang-fr">Profil</span>
+                            <span class="lang-es">Perfil</span>
+                            <span class="lang-en">Profile</span>
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed text-justify">
+                            <span class="lang-fr">Professionnel passionné et polyvalent avec plus de 15 ans d'expérience internationale dans l'enseignement du français (FLE), la traduction spécialisée et la conception de produits numériques et touristiques. Expert dans la création de programmes engageants, le coaching à fort impact et l'intégration des technologies éducatives et de l'intelligence artificielle pour optimiser l'apprentissage.</span>
+                            <span class="lang-es">Profesional apasionado y polivalente con más de 15 años de experiencia internacional en la enseñanza del francés (FLE), traducción especializada y diseño de productos digitales y turísticos. Experto en la creación de programas atractivos, el coaching de alto impacto y la integración de tecnologías educativas e inteligencia artificial para optimizar el aprendizaje.</span>
+                            <span class="lang-en">Passionate and versatile professional with over 15 years of international experience in French teaching (FLE), specialized translation, and digital & tourism product design. Expert in designing engaging curricula, high-impact coaching, and integrating educational technologies and AI to optimize learning outcomes.</span>
+                        </p>
+                    </div>
+
+                    <!-- COMPÉTENCES -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-dark border-b-2 border-brand-500 pb-2 mb-4 flex items-center">
+                            <i class="fas fa-cogs text-brand-600 mr-2"></i>
+                            <span class="lang-fr">Compétences</span>
+                            <span class="lang-es">Competencias</span>
+                            <span class="lang-en">Skills</span>
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-700">
+                                    <span class="lang-fr">Pédagogie</span>
+                                    <span class="lang-es">Pedagogía</span>
+                                    <span class="lang-en">Pedagogy</span>
+                                </h4>
+                                <p class="text-xs text-slate-500 mt-1">
+                                    <span class="lang-fr">Enseignement du FLE, Ingénierie Pédagogique, Pédagogie par Projet, Différenciation, EdTech.</span>
+                                    <span class="lang-es">Enseñanza de FLE, Ingeniería Pedagógica, Pedagogía por Proyectos, Diferenciación, EdTech.</span>
+                                    <span class="lang-en">FLE Teaching, Instructional Design, Project-Based Learning, Differentiation, EdTech.</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-700">
+                                    <span class="lang-fr">Linguistique</span>
+                                    <span class="lang-es">Lingüística</span>
+                                    <span class="lang-en">Linguistics</span>
+                                </h4>
+                                <p class="text-xs text-slate-500 mt-1">
+                                    <span class="lang-fr">Traduction Experte (Espagnol <> Français), Interprétariat, Révision et Correction de textes.</span>
+                                    <span class="lang-es">Traducción Experta (Español <> Francés), Interpretación, Revisión y Corrección de textos.</span>
+                                    <span class="lang-en">Expert Translation (Spanish <> French), Interpreting, Proofreading, and Editing.</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-700">
+                                    <span class="lang-fr">Gestion de Projet</span>
+                                    <span class="lang-es">Gestión de Proyectos</span>
+                                    <span class="lang-en">Project Management</span>
+                                </h4>
+                                <p class="text-xs text-slate-500 mt-1">
+                                    <span class="lang-fr">Management de Projets, Consulting, Conception de Produits Touristiques et Culturels.</span>
+                                    <span class="lang-es">Gestión de Proyectos, Consultoría, Diseño de Productos Turísticos y Culturales.</span>
+                                    <span class="lang-en">Project Management, Consulting, Touristic & Cultural Product Design.</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-700">
+                                    <span class="lang-fr">Techniques & Numériques</span>
+                                    <span class="lang-es">Técnicas y Digitales</span>
+                                    <span class="lang-en">Technical & Digital</span>
+                                </h4>
+                                <p class="text-xs text-slate-500 mt-1">
+                                    <span class="lang-fr">Création de Contenu, Administration WordPress, Outils LMS & TBI, IA Générative appliquée à l'apprentissage.</span>
+                                    <span class="lang-es">Creación de Contenido, Administración WordPress, LMS y PDI, IA Generativa aplicada al aprendizaje.</span>
+                                    <span class="lang-en">Content Creation, WordPress Administration, LMS & IWB tools, Generative AI for education.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FORMATION -->
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                        <h3 class="text-lg font-bold text-brand-dark border-b-2 border-brand-500 pb-2 mb-4 flex items-center">
+                            <i class="fas fa-graduation-cap text-brand-600 mr-2"></i>
+                            <span class="lang-fr">Formation</span>
+                            <span class="lang-es">Formación</span>
+                            <span class="lang-en">Education</span>
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-brand-500 pl-3">
+                                <h4 class="text-sm font-bold text-slate-700">Master 2 | FLE</h4>
+                                <p class="text-xs text-slate-500">Université des Antilles</p>
+                                <p class="text-xs text-slate-400 italic">2016 - 2018</p>
+                            </div>
+                            <div class="border-l-2 border-slate-200 pl-3">
+                                <h4 class="text-sm font-bold text-slate-700">Master 2 | Management</h4>
+                                <p class="text-xs text-slate-500">SKEMA Business School</p>
+                                <p class="text-xs text-slate-400 italic">2002 - 2006</p>
+                            </div>
+                            <div class="border-l-2 border-slate-200 pl-3">
+                                <h4 class="text-sm font-bold text-slate-700">Classe Préparatoire HEC</h4>
+                                <p class="text-xs text-slate-500">Lycée Gay Lussac, Limoges</p>
+                                <p class="text-xs text-slate-400 italic">2000 - 2002</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTENU PRINCIPAL (EXPÉRIENCE ET PROJETS PHARES) -->
+                <div class="md:col-span-2 space-y-8">
+                    
+                    <!-- EXPÉRIENCE PROFESSIONNELLE -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+                        <h3 class="text-xl font-bold text-brand-dark border-b-2 border-brand-500 pb-2 mb-6 flex items-center">
+                            <i class="fas fa-briefcase text-brand-600 mr-3"></i>
+                            <span class="lang-fr">Expérience Professionnelle</span>
+                            <span class="lang-es">Experiencia Profesional</span>
+                            <span class="lang-en">Professional Experience</span>
+                        </h3>
+                        
+                        <div class="space-y-8">
+                            <!-- NOUVELLE EXPÉRIENCE : FRENCH IMMERSION (CARLITO) -->
+                            <div class="relative pl-6 border-l-2 border-brand-600">
+                                <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-brand-600 rounded-full ring-4 ring-brand-50"></div>
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                                    <h4 class="text-base font-bold text-slate-800">
+                                        <span class="lang-fr">Coach Premium d'Expression Orale</span>
+                                        <span class="lang-es">Coach Premium de Expresión Oral</span>
+                                        <span class="lang-en">Premium Oral Expression Coach</span>
+                                    </h4>
+                                    <span class="text-xs font-bold px-2.5 py-1 bg-brand-50 text-brand-600 rounded-full">
+                                        <span class="lang-fr">Décembre 2025 - Présent</span>
+                                        <span class="lang-es">Diciembre 2025 - Presente</span>
+                                        <span class="lang-en">December 2025 - Present</span>
+                                    </span>
+                                </div>
+                                <p class="text-sm font-semibold text-brand-600 mb-2">French Immersion (par French Teacher Carlito) | <span class="lang-fr">En Ligne</span><span class="lang-es">En Línea</span><span class="lang-en">Online</span></p>
+                                <p class="text-xs text-slate-600 text-justify">
+                                    <span class="lang-fr">Conduite de sessions de conversation intensives et d'immersion orale à destination d'un public international d'apprenants intermédiaires et avancés. Conception d'activités communicatives dynamiques axées sur la fluidité, le dépassement de l'anxiété langagière et le perfectionnement phonétique. Utilisation de supports authentiques et de méthodologies innovantes développées en synergie avec la vision éducative de la plateforme.</span>
+                                    <span class="lang-es">Facilitación de sesiones de conversación intensivas e inmersión lingüística dirigidas a estudiantes internacionales de niveles intermedio y avanzado. Diseño de actividades comunicativas enfocadas en la fluidez oral, la superación de la barrera del idioma y el perfeccionamiento fonético. Uso de materiales auténticos en colaboración con la visión educativa de la plataforma.</span>
+                                    <span class="lang-en">Facilitating intensive conversational coaching and speaking immersion sessions for intermediate to advanced international French learners. Crafting dynamic communicative activities targeting fluency, speaking confidence, and pronunciation enhancement. Leveraging authentic cultural resources in line with the platform's immersive teaching methodology.</span>
+                                </p>
+                            </div>
+
+                            <!-- DIPLOMADO ANÁHUAC -->
+                            <div class="relative pl-6 border-l-2 border-brand-500">
+                                <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-brand-500 rounded-full"></div>
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                                    <h4 class="text-base font-bold text-slate-800">
+                                        <span class="lang-fr">Professeur pour le Diplomado “Pays Européens”</span>
+                                        <span class="lang-es">Profesor para el Diplomado “Países Europeos”</span>
+                                        <span class="lang-en">Professor for the "European Countries" Diploma</span>
+                                    </h4>
+                                    <span class="text-xs font-bold px-2.5 py-1 bg-slate-100 text-slate-600 rounded-full">
+                                        <span class="lang-fr">Février 2025 - Présent</span>
+                                        <span class="lang-es">Febrero 2025 - Presente</span>
+                                        <span class="lang-en">February 2025 - Present</span>
+                                    </span>
+                                </div>
+                                <p class="text-sm font-semibold text-brand-600 mb-2">Universidad Anáhuac Mayab | <span class="lang-fr">À distance</span><span class="lang-es">A distancia</span><span class="lang-en">Remote</span></p>
+                                <p class="text-xs text-slate-600 text-justify">
+                                    <span class="lang-fr">Enseignement de modules culturels et historiques sur l'Europe en français et espagnol. Structuration d'un contenu académique exigeant pour des professionnels et étudiants de haut niveau.</span>
+                                    <span class="lang-es">Enseñanza de módulos culturales e históricos sobre Europa en francés y español. Estructuración de contenido académico riguroso para profesionales y estudiantes de alto nivel.</span>
+                                    <span class="lang-en">Teaching cultural and historical modules on Europe in French and Spanish. Designing rigorous academic courses for professionals and high-achieving university students.</span>
+                                </p>
+                            </div>
+
+                            <!-- UNAM ENES -->
+                            <div class="relative pl-6 border-l-2 border-brand-500">
+                                <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-brand-500 rounded-full"></div>
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                                    <h4 class="text-base font-bold text-slate-800">
+                                        <span class="lang-fr">Professeur de Français</span>
+                                        <span class="lang-es">Profesor de Francés</span>
+                                        <span class="lang-en">French Teacher</span>
+                                    </h4>
+                                    <span class="text-xs font-bold px-2.5 py-1 bg-slate-100 text-slate-600 rounded-full">
+                                        <span class="lang-fr">Février 2020 - Présent</span>
+                                        <span class="lang-es">Febrero 2020 - Presente</span>
+                                        <span class="lang-en">February 2020 - Present</span>
+                                    </span>
+                                </div>
+                                <p class="text-sm font-semibold text-brand-600 mb-2">Enes Mérida, UNAM</p>
+                                <p class="text-xs text-slate-600 text-justify">
+                                    <span class="lang-fr">Cours collectifs de FLE et d'expression orale pour les étudiants universitaires. Intégration active de projets technologiques et d'outils d'IA pour personnaliser le suivi.</span>
+                                    <span class="lang-es">Clases grupales de FLE y expresión oral para estudiantes universitarios. Integración activa de proyectos tecnológicos y herramientas de IA para personalizar el seguimiento.</span>
+                                    <span class="lang-en">Conducting group FLE and oral communication classes for university students. Actively integrating tech projects and AI tools to deliver personalized student follow-ups.</span>
+                                </p>
+                            </div>
+
+                            <!-- TUSPEAKING (ACTUALISÉ : FIN EN DÉCEMBRE 2025) -->
+                            <div class="relative pl-6 border-l-2 border-slate-200">
+                                <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-slate-200 rounded-full"></div>
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                                    <h4 class="text-base font-bold text-slate-700">
+                                        <span class="lang-fr">Professeur de Français</span>
+                                        <span class="lang-es">Profesor de Francés</span>
+                                        <span class="lang-en">French Teacher</span>
+                                    </h4>
+                                    <span class="text-xs font-medium px-2.5 py-1 bg-slate-50 text-slate-500 rounded-full">
+                                        <span class="lang-fr">Octobre 2022 - Décembre 2025</span>
+                                        <span class="lang-es">Octubre 2022 - Diciembre 2025</span>
+                                        <span class="lang-en">October 2022 - December 2025</span>
+                                    </span>
+                                </div>
+                                <p class="text-sm font-semibold text-slate-500 mb-2">tuSpeaking | <span class="lang-fr">En Ligne</span><span class="lang-es">En Línea</span><span class="lang-en">Online</span></p>
+                                <p class="text-xs text-slate-600 text-justify">
+                                    <span class="lang-fr">Cours individuels d'expression écrite et orale orientés business. Évaluation continue et conception de parcours de formation sur mesure pour cadres et dirigeants d'entreprises.</span>
+                                    <span class="lang-es">Clases individuales de expresión escrita y oral con enfoque empresarial. Evaluación continua y diseño de planes de estudio a la medida para ejecutivos y directivos de empresas.</span>
+                                    <span class="lang-en">One-on-one business-focused oral and written expression coaching. Delivering continuous assessments and custom educational paths for corporate executives and leaders.</span>
+                                </p>
+                            </div>
+
+                            <!-- ANÁHUAC MAYAB (PRÉCÉDENT) -->
+                            <div class="relative pl-6 border-l-2 border-slate-200">
+                                <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-slate-200 rounded-full"></div>
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                                    <h4 class="text-base font-bold text-slate-700">
+                                        <span class="lang-fr">Professeur de Français</span>
+                                        <span class="lang-es">Profesor de Francés</span>
+                                        <span class="lang-en">French Teacher</span>
+                                    </h4>
+                                    <span class="text-xs font-medium px-2.5 py-1 bg-slate-50 text-slate-500 rounded-full">
+                                        <span class="lang-fr">Janvier 2021 - Juin 2025</span>
+                                        <span class="lang-es">Enero 2021 - Junio 2025</span>
+                                        <span class="lang-en">January 2021 - June 2025</span>
+                                    </span>
+                                </div>
+                                <p class="text-sm font-semibold text-slate-500 mb-2">Universidad Anáhuac Mayab</p>
+                                <p class="text-xs text-slate-600 text-justify">
+                                    <span class="lang-fr">Dispense de cours de langue française du niveau débutant à avancé. Élaboration d'outils d'évaluation et de supports académiques transversaux.</span>
+                                    <span class="lang-es">Impartición de clases de francés desde nivel principiante hasta avanzado. Desarrollo de herramientas de evaluación y materiales académicos transversales.</span>
+                                    <span class="lang-en">Teaching French classes from beginner to advanced levels. Creating evaluation tools and cross-disciplinary academic materials.</span>
+                                </p>
+                            </div>
+
+                            <!-- TRADUCTEUR FREELANCE -->
+                            <div class="relative pl-6 border-l-2 border-slate-200">
+                                <div class="absolute -left-1.5 top-1.5 w-3 h-3 bg-slate-200 rounded-full"></div>
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                                    <h4 class="text-base font-bold text-slate-700">
+                                        <span class="lang-fr">Traducteur Indépendant (Espagnol-Français)</span>
+                                        <span class="lang-es">Traductor Independiente (Español-Francés)</span>
+                                        <span class="lang-en">Freelance Translator (Spanish-French)</span>
+                                    </h4>
+                                    <span class="text-xs font-medium px-2.5 py-1 bg-slate-50 text-slate-500 rounded-full">
+                                        <span class="lang-fr">Septembre 2010 - Présent</span>
+                                        <span class="lang-es">Septiembre 2010 - Presente</span>
+                                        <span class="lang-en">September 2010 - Present</span>
+                                    </span>
+                                </div>
+                                <p class="text-sm font-semibold text-slate-500 mb-2">Freelance | Mexique</p>
+                                <p class="text-xs text-slate-600 text-justify">
+                                    <span class="lang-fr">Traduction spécialisée d'ouvrages culturels (civilisation maya, histoire), de guides touristiques et de documents officiels ou légaux.</span>
+                                    <span class="lang-es">Traducción especializada de obras culturales (civilización maya, historia), guías turísticas y documentos oficiales o legales.</span>
+                                    <span class="lang-en">Specialized translation of cultural literature (Mayan civilization, history), tour guides, and official or legal documents.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJETS EN BREF -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+                        <h3 class="text-xl font-bold text-brand-dark border-b-2 border-brand-500 pb-2 mb-6 flex items-center">
+                            <i class="fas fa-lightbulb text-brand-600 mr-3"></i>
+                            <span class="lang-fr">Projets Phares</span>
+                            <span class="lang-es">Proyectos Destacados</span>
+                            <span class="lang-en">Featured Projects</span>
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            
+                            <!-- MayaVoice -->
+                            <div class="border border-slate-100 rounded-xl p-4 hover:bg-slate-50/50 transition-colors">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">MayaVoiceTranslator</h4>
+                                <p class="text-xs text-slate-500 mb-3 line-clamp-2">
+                                    <span class="lang-fr">Traducteur vocal et écrit maya-espagnol-français conçu pour la préservation linguistique.</span>
+                                    <span class="lang-es">Traductor de voz y texto maya-español-francés creado para la preservación lingüística.</span>
+                                    <span class="lang-en">Voice and text Mayan-Spanish-French translator built for linguistic preservation.</span>
+                                </p>
+                                <a href="#" onclick="showProjectDetail('mayavoice'); return false;" class="text-xs font-bold text-brand-600 hover:text-brand-700 inline-flex items-center">
+                                    <span class="lang-fr">En savoir plus</span><span class="lang-es">Leer más</span><span class="lang-en">Read more</span> &rarr;
+                                </a>
+                            </div>
+
+                            <!-- EcoValora -->
+                            <div class="border border-slate-100 rounded-xl p-4 hover:bg-slate-50/50 transition-colors">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">EcoValora México</h4>
+                                <p class="text-xs text-slate-500 mb-3 line-clamp-2">
+                                    <span class="lang-fr">Système intelligent et écologique de traitement et de valorisation des déchets solides.</span>
+                                    <span class="lang-es">Sistema inteligente y ecológico de tratamiento y valorización de residuos sólidos.</span>
+                                    <span class="lang-en">Smart and ecological solid waste treatment and recycling system.</span>
+                                </p>
+                                <a href="#" onclick="showProjectDetail('ecovalora'); return false;" class="text-xs font-bold text-brand-600 hover:text-brand-700 inline-flex items-center">
+                                    <span class="lang-fr">En savoir plus</span><span class="lang-es">Leer más</span><span class="lang-en">Read more</span> &rarr;
+                                </a>
+                            </div>
+
+                            <!-- Le Mid Libre -->
+                            <div class="border border-slate-100 rounded-xl p-4 hover:bg-slate-50/50 transition-colors">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">Le Mid Libre</h4>
+                                <p class="text-xs text-slate-500 mb-3 line-clamp-2">
+                                    <span class="lang-fr">Portail webzine d'actualité culturelle et ressources FLE pour l'Alliance Française.</span>
+                                    <span class="lang-es">Portal de revista digital de actualidad cultural y recursos FLE para la Alianza Francesa.</span>
+                                    <span class="lang-en">Cultural webzine portal and FLE learning resources for Alliance Française.</span>
+                                </p>
+                                <a href="#" onclick="showProjectDetail('lemidlibre'); return false;" class="text-xs font-bold text-brand-600 hover:text-brand-700 inline-flex items-center">
+                                    <span class="lang-fr">En savoir plus</span><span class="lang-es">Leer más</span><span class="lang-en">Read more</span> &rarr;
+                                </a>
+                            </div>
+
+                            <!-- MundialPronos -->
+                            <div class="border border-slate-100 rounded-xl p-4 hover:bg-slate-50/50 transition-colors">
+                                <h4 class="font-bold text-slate-800 text-sm mb-1">MundialPronos</h4>
+                                <p class="text-xs text-slate-500 mb-3 line-clamp-2">
+                                    <span class="lang-fr">Plateforme Web interactive de pronostics pour la Coupe du Monde de football.</span>
+                                    <span class="lang-es">Plataforma web interactiva de pronósticos para la Copa Mundial de fútbol.</span>
+                                    <span class="lang-en">Interactive web platform for football World Cup match predictions.</span>
+                                </p>
+                                <a href="#" onclick="showProjectDetail('mundialpronos'); return false;" class="text-xs font-bold text-brand-600 hover:text-brand-700 inline-flex items-center">
+                                    <span class="lang-fr">En savoir plus</span><span class="lang-es">Leer más</span><span class="lang-en">Read more</span> &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= VUE GRILLE DES PROJETS (PORTFOLIO) ================= -->
+        <div id="projects-grid-view" class="hidden transition-opacity duration-300">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-extrabold text-brand-dark tracking-tight">
+                    <span class="lang-fr">Mes Projets & Réalisations</span>
+                    <span class="lang-es">Mis Proyectos y Creaciones</span>
+                    <span class="lang-en">My Projects & Creations</span>
+                </h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                    <span class="lang-fr">Découvrez les outils, portails et plateformes développés au croisement de la technologie, de l'éducation et du développement durable.</span>
+                    <span class="lang-es">Descubra las herramientas, portales y plataformas desarrolladas en el cruce de la tecnología, educación y sustentabilidad.</span>
+                    <span class="lang-en">Discover the tools, portals, and platforms developed at the intersection of technology, education, and sustainable development.</span>
+                </p>
+            </div>
+
+            <!-- Grille de cartes projets -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- PROJET 1 : MayaVoice -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover-card flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 bg-slate-900 flex items-center justify-center overflow-hidden">
+                            <img src="images/mayavoice_mockup.png" alt="MayaVoiceTranslator Mockup" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold px-2 py-1 bg-teal-500 text-white rounded">Education & Tech</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800">MayaVoiceTranslator</h3>
+                            <p class="text-xs text-slate-500 mt-2 text-justify">
+                                <span class="lang-fr">Outil de traduction vocale et écrite maya-espagnol-français conçu pour la préservation culturelle et linguistique du Yucatán. Facilite les échanges touristiques et l'apprentissage inclusif.</span>
+                                <span class="lang-es">Herramienta de traducción de voz y texto maya-español-francés diseñada para la preservación lingüística y cultural de Yucatán. Facilita el intercambio turístico e inclusivo.</span>
+                                <span class="lang-en">Voice and text Mayan-Spanish-French translator designed for cultural and linguistic preservation in Yucatan. Enhances tourist exchanges and inclusive learning.</span>
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">Web Speech API</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">PWA</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">IA & NLP</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-50">
+                        <button onclick="showProjectDetail('mayavoice')" class="w-full py-2.5 text-center text-xs font-semibold rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm hover:shadow-brand-600/20 transition-all">
+                            <span class="lang-fr">Détails du projet</span><span class="lang-es">Detalles del proyecto</span><span class="lang-en">Project details</span> &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PROJET 2 : EcoValora -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover-card flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 bg-slate-900 flex items-center justify-center overflow-hidden">
+                            <img src="images/ecovalora_mockup.png" alt="EcoValora México Mockup" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold px-2 py-1 bg-green-600 text-white rounded">Ecology & Smart City</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800">EcoValora México</h3>
+                            <p class="text-xs text-slate-500 mt-2 text-justify">
+                                <span class="lang-fr">Solution globale de gestion et de valorisation des déchets solides. Optimisation logistique de la collecte, suivi des volumes et incitation au tri communautaire pour le marché mexicain.</span>
+                                <span class="lang-es">Solución integral de gestión y valorización de residuos sólidos. Optimización logística de recolección, seguimiento de volúmenes y fomento de la separación de basura comunitaria.</span>
+                                <span class="lang-en">Comprehensive solid waste management and valorization solution. Optimizing collection logistics, monitoring sorting volumes, and promoting community recycling in Mexico.</span>
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">Leaflet.js</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">Chart.js</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">GPS/IoT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-50">
+                        <button onclick="showProjectDetail('ecovalora')" class="w-full py-2.5 text-center text-xs font-semibold rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm hover:shadow-brand-600/20 transition-all">
+                            <span class="lang-fr">Détails du projet</span><span class="lang-es">Detalles del proyecto</span><span class="lang-en">Project details</span> &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PROJET 3 : Le Mid Libre -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover-card flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 bg-slate-900 flex items-center justify-center overflow-hidden">
+                            <img src="images/lemidlibre_mockup.png" alt="Le Mid Libre Mockup" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold px-2 py-1 bg-blue-600 text-white rounded">Education & Media</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800">Le Mid Libre</h3>
+                            <p class="text-xs text-slate-500 mt-2 text-justify">
+                                <span class="lang-fr">Plateforme webzine trilingue et espace de ressources interactives développé pour l'Alliance Française de Mérida. Améliore la diffusion culturelle et l'apprentissage du FLE.</span>
+                                <span class="lang-es">Plataforma digital de webzine y banco de recursos didácticos interactivos para la Alianza Francesa de Mérida. Promueve la difusión cultural y el aprendizaje de FLE.</span>
+                                <span class="lang-en">Trilingual webzine platform and interactive resource hub developed for the Alliance Française of Mérida. Enhances cultural outreach and French language acquisition.</span>
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">React</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">H5P Interactive</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">Headless CMS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-50">
+                        <button onclick="showProjectDetail('lemidlibre')" class="w-full py-2.5 text-center text-xs font-semibold rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm hover:shadow-brand-600/20 transition-all">
+                            <span class="lang-fr">Détails du projet</span><span class="lang-es">Detalles del proyecto</span><span class="lang-en">Project details</span> &rarr;
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PROJET 4 : MundialPronos -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover-card flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 bg-slate-900 flex items-center justify-center overflow-hidden">
+                            <img src="images/mundialpronos_mockup.png" alt="MundialPronos Mockup" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <span class="absolute bottom-3 left-4 text-xs font-bold px-2 py-1 bg-amber-500 text-white rounded">Gamification & Sports</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-slate-800">MundialPronos</h3>
+                            <p class="text-xs text-slate-500 mt-2 text-justify">
+                                <span class="lang-fr">Portail de divertissement et de pronostics sportifs en temps réel pour la Coupe du Monde de football. Favorise la création de communautés actives de pronostiqueurs.</span>
+                                <span class="lang-es">Portal de entretenimiento y pronósticos deportivos en tiempo real para la Copa Mundial. Fomenta la creación de comunidades activas de predictores.</span>
+                                <span class="lang-en">Entertainment and real-time football World Cup predictions portal. Fosters the creation of highly engaged prediction leagues and friendly competitions.</span>
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">JavaScript ES6</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">Firebase DB</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">Realtime updates</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 border-t border-slate-50">
+                        <button onclick="showProjectDetail('mundialpronos')" class="w-full py-2.5 text-center text-xs font-semibold rounded-lg bg-brand-600 hover:bg-brand-700 text-white shadow-sm hover:shadow-brand-600/20 transition-all">
+                            <span class="lang-fr">Détails du projet</span><span class="lang-es">Detalles del proyecto</span><span class="lang-en">Project details</span> &rarr;
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ================= VUE DÉTAIL DU PROJET (CONTENU DYNAMIQUE/MODULAIRE) ================= -->
+        <div id="project-detail-view" class="hidden transition-opacity duration-300">
+            <div class="mb-6">
+                <button onclick="showView('projects-grid-view')" class="inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-700 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100 transition-all">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    <span class="lang-fr">Retour aux projets</span>
+                    <span class="lang-es">Volver a los proyectos</span>
+                    <span class="lang-en">Back to projects</span>
+                </button>
+            </div>
+
+            <!-- FICHE 1 : MayaVoiceTranslator -->
+            <div id="detail-mayavoice" class="project-detail-content hidden space-y-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                    <div class="relative h-64 sm:h-96 w-full">
+                        <img src="images/mayavoice_mockup.png" alt="MayaVoiceTranslator Presentation" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/40"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h2 class="text-2xl sm:text-4xl font-extrabold">MayaVoiceTranslator</h2>
+                            <p class="text-sm sm:text-base text-slate-200 mt-2 font-light">
+                                <span class="lang-fr">Briser les barrières linguistiques et préserver le patrimoine maya</span>
+                                <span class="lang-es">Rompiendo barreras lingüísticas y preservando el patrimonio maya</span>
+                                <span class="lang-en">Breaking language barriers and preserving Mayan heritage</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-6 text-sm text-slate-600 leading-relaxed text-justify">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2">
+                                    <span class="lang-fr">La Mission</span><span class="lang-es">La Misión</span><span class="lang-en">The Mission</span>
+                                </h3>
+                                <p>
+                                    <span class="lang-fr">MayaVoiceTranslator est né d'un double constat : la richesse culturelle de la langue maya yucatèque et le fossé numérique qui menace sa transmission. Ce projet n'est pas un simple outil technique ; c'est une initiative visant à créer des ponts. Il s'agit de donner aux voyageurs curieux les moyens d'un échange respectueux, aux professionnels du tourisme un avantage pour un accueil plus authentique, et surtout, d'offrir à la communauté maya un instrument moderne pour valoriser et partager sa langue.</span>
+                                    <span class="lang-es">MayaVoiceTranslator nació de una doble observación: la riqueza cultural de la lengua maya yucateca y la brecha digital que amenaza su transmisión. Este proyecto no es una simple herramienta técnica; es una iniciativa que busca crear puentes. Se trata de dar a los viajeros curiosos los medios para un intercambio respetuoso, a los profesionales del turismo una ventaja para una acogida más auténtica, y sobre todo, de ofrecer a la comunidad maya un instrumento moderno para valorar y compartir su lengua.</span>
+                                    <span class="lang-en">MayaVoiceTranslator was born from a dual observation: the cultural richness of the Yucatec Mayan language and the digital divide that threatens its transmission. This project is not just a technical tool; it is an initiative aimed at building bridges. It's about giving curious travelers the means for a respectful exchange, providing tourism professionals with an advantage for a more authentic welcome, and above all, offering the Mayan community a modern instrument to value and share their language.</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2">
+                                    <span class="lang-fr">Caractéristiques Clés</span><span class="lang-es">Características Claves</span><span class="lang-en">Key Features</span>
+                                </h3>
+                                <ul class="list-disc list-inside pl-2 space-y-1">
+                                    <li><strong><span class="lang-fr">Reconnaissance et Synthèse Vocale</span><span class="lang-es">Reconocimiento y Síntesis de Voz</span><span class="lang-en">Speech Recognition & Synthesis</span>:</strong> <span class="lang-fr">Traduction vocale instantanée bidirectionnelle.</span><span class="lang-es">Traducción de voz bidireccional instantánea.</span><span class="lang-en">Instant bidirectional voice translation.</span></li>
+                                    <li><strong><span class="lang-fr">Principes Éthiques</span><span class="lang-es">Principios Éticos</span><span class="lang-en">Ethical Principles</span>:</strong> <span class="lang-fr">Collaboration directe avec des locuteurs natifs pour assurer la véracité culturelle, gratuité totale et confidentialité absolue des échanges.</span><span class="lang-es">Colaboración directa con hablantes nativos para garantizar la veracidad cultural, gratuidad total y privacidad absoluta.</span><span class="lang-en">Direct collaboration with native speakers to guarantee cultural accuracy, 100% free of charge, and full data privacy.</span></li>
+                                    <li><strong><span class="lang-fr">Mode Hors-ligne</span><span class="lang-es">Modo Offline</span><span class="lang-en">Offline Capability</span>:</strong> <span class="lang-fr">Conçu pour fonctionner dans les zones rurales isolées du Yucatán à faible couverture réseau.</span><span class="lang-es">Diseñado para funcionar en áreas rurales aisladas de Yucatán con baja cobertura de red.</span><span class="lang-en">Designed to work in remote rural areas of Yucatan with low or no network coverage.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">
+                                    <span class="lang-fr">Fiche technique</span><span class="lang-es">Ficha técnica</span><span class="lang-en">Project Info</span>
+                                </h3>
+                                <div class="space-y-3 text-xs">
+                                    <div><span class="font-semibold text-slate-500">Tech Stack:</span> JavaScript, Web Speech API, Progressive Web App (PWA), LocalStorage.</div>
+                                    <div><span class="font-semibold text-slate-500">Target Market:</span> Yucatán, Quintana Roo, Campeche.</div>
+                                    <div><span class="font-semibold text-slate-500">Status:</span> Production.</div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <h4 class="text-xs font-bold text-brand-600 mb-1">
+                                    <span class="lang-fr">Impact social</span><span class="lang-es">Impacto social</span><span class="lang-en">Social Impact</span>
+                                </h4>
+                                <p class="text-[11px] text-slate-500">
+                                    <span class="lang-fr">Préservation active du patrimoine maya yucatèque, favorisant l'inclusion économique des populations locales.</span>
+                                    <span class="lang-es">Preservación activa del patrimonio maya yucateco, fomentando la inclusión económica de las poblaciones locales.</span>
+                                    <span class="lang-en">Active preservation of Yucatec Mayan heritage, supporting economic inclusion for local indigenous populations.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHE 2 : EcoValora México -->
+            <div id="detail-ecovalora" class="project-detail-content hidden space-y-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                    <div class="relative h-64 sm:h-96 w-full">
+                        <img src="images/ecovalora_mockup.png" alt="EcoValora México Presentation" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/40"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h2 class="text-2xl sm:text-4xl font-extrabold">EcoValora México</h2>
+                            <p class="text-sm sm:text-base text-slate-200 mt-2 font-light">
+                                <span class="lang-fr">Traitement et valorisation écologique des résidus solides</span>
+                                <span class="lang-es">Tratamiento y valorización ecológica de residuos sólidos</span>
+                                <span class="lang-en">Smart solid waste treatment and circular valorization</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-6 text-sm text-slate-600 leading-relaxed text-justify">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2">
+                                    <span class="lang-fr">La Mission</span><span class="lang-es">La Misión</span><span class="lang-en">The Mission</span>
+                                </h3>
+                                <p>
+                                    <span class="lang-fr">EcoValora México a été conçu pour résoudre la problématique de la gestion anarchique des déchets ménagers et industriels dans la péninsule du Yucatán. Le projet cherche à structurer la filière de recyclage locale par le biais d'un portail de coordination numérique. Il connecte les points de génération (entreprises et foyers), les collecteurs informels ou privés, et les usines de recyclage ou compostage pour valoriser les déchets en tant que ressources.</span>
+                                    <span class="lang-es">EcoValora México fue concebido para resolver la problemática de la gestión ineficiente de los residuos domésticos e industriales en la península de Yucatán. El proyecto busca estructurar el sector de reciclaje local a través de un portal de coordinación digital. Conecta los puntos de generación de basura (empresas y hogares), los recolectores locales y las plantas de valorización (composta y biogás) para transformar los desechos en recursos productivos.</span>
+                                    <span class="lang-en">EcoValora México was designed to tackle the issues of disorganized household and industrial waste management in the Yucatan peninsula. The project structures the local recycling value chain using a central digital coordination portal. It connects waste generators (businesses and households), informal/private collectors, and recycling/composting plants, ensuring waste is treated as a valuable resource.</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2">
+                                    <span class="lang-fr">Caractéristiques Clés</span><span class="lang-es">Características Claves</span><span class="lang-en">Key Features</span>
+                                </h3>
+                                <ul class="list-disc list-inside pl-2 space-y-1">
+                                    <li><strong><span class="lang-fr">Optimisation de Collecte</span><span class="lang-es">Optimización de Recolección</span><span class="lang-en">Collection Optimization</span>:</strong> <span class="lang-fr">Calcul d'itinéraires intelligents (Leaflet.js) pour réduire l'empreinte carbone des camions.</span><span class="lang-es">Cálculo de rutas inteligentes (Leaflet.js) para reducir la huella de carbono de los transportes de basura.</span><span class="lang-en">Smart route mapping (Leaflet.js) to reduce the carbon footprint of transport vehicles.</span></li>
+                                    <li><strong><span class="lang-fr">Valorisation Biologique</span><span class="lang-es">Valorización Biológica</span><span class="lang-en">Biological Recycling</span>:</strong> <span class="lang-fr">Module dédié au suivi du tri des matières organiques destinées à la fabrication de biogaz et compost agricole.</span><span class="lang-es">Módulo dedicado al seguimiento de la separación de residuos orgánicos para fabricar biogás y compostaje agrícola.</span><span class="lang-en">Integrated module tracking organic waste separation for biogas and agricultural compost production.</span></li>
+                                    <li><strong><span class="lang-fr">Dashboard d'Analyse</span><span class="lang-es">Tablero Estadístico</span><span class="lang-en">Analytics Dashboard</span>:</strong> <span class="lang-fr">Indicateurs visuels (Chart.js) montrant l'évolution des volumes recyclés par type de matière.</span><span class="lang-es">Indicadores visuales (Chart.js) que muestran la evolución de volúmenes reciclados por tipo de material.</span><span class="lang-en">Real-time statistics (Chart.js) displaying recycled volumes and percentages by materials.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">
+                                    <span class="lang-fr">Fiche technique</span><span class="lang-es">Ficha técnica</span><span class="lang-en">Project Info</span>
+                                </h3>
+                                <div class="space-y-3 text-xs">
+                                    <div><span class="font-semibold text-slate-500">Tech Stack:</span> JavaScript (ES6), Tailwind CSS, Leaflet.js, Chart.js, Node.js API.</div>
+                                    <div><span class="font-semibold text-slate-500">Target Market:</span> Mexico (Yucatán / Mérida).</div>
+                                    <div><span class="font-semibold text-slate-500">Status:</span> MVP / Pilot phase.</div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <h4 class="text-xs font-bold text-green-600 mb-1">
+                                    <span class="lang-fr">Objectif Vert</span><span class="lang-es">Objetivo Verde</span><span class="lang-en">Green Target</span>
+                                </h4>
+                                <p class="text-[11px] text-slate-500">
+                                    <span class="lang-fr">Réduire de 30% la décharge sauvage et réintroduire les plastiques dans le circuit d'économie circulaire.</span>
+                                    <span class="lang-es">Reducir un 30% los basureros clandestinos y reincorporar plásticos en el circuito de economía circular.</span>
+                                    <span class="lang-en">Divert 30% of waste from landfills and reintroduce industrial plastics back into the local circular economy.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHE 3 : Le Mid Libre -->
+            <div id="detail-lemidlibre" class="project-detail-content hidden space-y-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                    <div class="relative h-64 sm:h-96 w-full">
+                        <img src="images/lemidlibre_mockup.png" alt="Le Mid Libre Presentation" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/40"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h2 class="text-2xl sm:text-4xl font-extrabold">Le Mid Libre</h2>
+                            <p class="text-sm sm:text-base text-slate-200 mt-2 font-light">
+                                <span class="lang-fr">Webzine culturel et portail de ressources de l'Alliance Française de Mérida</span>
+                                <span class="lang-es">Webzine cultural y portal de recursos de la Alianza Francesa de Mérida</span>
+                                <span class="lang-en">Cultural webzine & resource portal of the Alliance Française of Mérida</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-6 text-sm text-slate-600 leading-relaxed text-justify">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2">
+                                    <span class="lang-fr">La Mission</span><span class="lang-es">La Misión</span><span class="lang-en">The Mission</span>
+                                </h3>
+                                <p>
+                                    <span class="lang-fr">Conçu comme un pont culturel entre la France et la péninsule du Yucatán, Le Mid Libre est le portail webzine officiel de l'Alliance Française de Mérida. Sa mission est double : publier des articles d'actualité culturelle locale et internationale, et servir de centre de ressources numériques interactif (FLE) pour soutenir les professeurs de l'Alliance et encourager le travail en autonomie des étudiants de français.</span>
+                                    <span class="lang-es">Concebido como un puente cultural entre Francia y la península de Yucatán, Le Mid Libre es el portal oficial de la Alianza Francesa de Mérida. Su misión es doble: publicar artículos de actualidad cultural local e internacional, y servir como centro de recursos digitales interactivos (FLE) para apoyar a los profesores de la Alianza y fomentar el autoaprendizaje de los estudiantes.</span>
+                                    <span class="lang-en">Designed as a cultural bridge between France and the Yucatan Peninsula, Le Mid Libre is the official webzine portal for the Alliance Française of Mérida. It serves a double mission: publishing local and international cultural stories, and housing a rich library of interactive digital French-learning resources (FLE) for teachers and self-studying students alike.</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2">
+                                    <span class="lang-fr">Caractéristiques Clés</span><span class="lang-es">Características Claves</span><span class="lang-en">Key Features</span>
+                                </h3>
+                                <ul class="list-disc list-inside pl-2 space-y-1">
+                                    <li><strong><span class="lang-fr">Contenu Pédagogique Interactif</span><span class="lang-es">Contenido Interactivo FLE</span><span class="lang-en">Interactive Learning Content</span>:</strong> <span class="lang-fr">Quizs de grammaire, fiches audio et exercices H5P intégrés pour tester sa compréhension en direct.</span><span class="lang-es">Cuestionarios de gramática, archivos de audio y ejercicios H5P para evaluar la comprensión de forma interactiva.</span><span class="lang-en">Grammar quizzes, listening files, and H5P modules for instant self-assessment.</span></li>
+                                    <li><strong><span class="lang-fr">Portail Éditorial Trilingue</span><span class="lang-es">Portal Editorial Trilingüe</span><span class="lang-en">Trilingual Editorial Engine</span>:</strong> <span class="lang-fr">Articles culturels rédigés en français, espagnol et anglais avec un vocabulaire adapté par niveau de langue (cadre CECRL).</span><span class="lang-es">Artículos culturales escritos en francés, español e inglés con vocabulario adaptado por niveles de idioma (MCER).</span><span class="lang-en">Cultural columns written in French, Spanish, and English with tailored vocabulary levels following the CEFR.</span></li>
+                                    <li><strong><span class="lang-fr">Agenda Culturel</span><span class="lang-es">Agenda de Eventos</span><span class="lang-en">Event Board</span>:</strong> <span class="lang-fr">Promotion et inscription aux évènements de l'Alliance Française (ciné-clubs, conférences, expositions).</span><span class="lang-es">Promoción e inscripción a los eventos de la Alianza Francesa (cineclubes, conferencias, exposiciones).</span><span class="lang-en">Direct promotion and registrations for cultural events hosted by Alliance Française.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">
+                                    <span class="lang-fr">Fiche technique</span><span class="lang-es">Ficha técnica</span><span class="lang-en">Project Info</span>
+                                </h3>
+                                <div class="space-y-3 text-xs">
+                                    <div><span class="font-semibold text-slate-500">Tech Stack:</span> React, WordPress (Headless), Tailwind CSS, H5P Engine.</div>
+                                    <div><span class="font-semibold text-slate-500">Client:</span> Alliance Française de Mérida.</div>
+                                    <div><span class="font-semibold text-slate-500">Status:</span> Production.</div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <h4 class="text-xs font-bold text-blue-600 mb-1">
+                                    <span class="lang-fr">Engagement</span><span class="lang-es">Interacción</span><span class="lang-en">Engagement</span>
+                                </h4>
+                                <p class="text-[11px] text-slate-500">
+                                    <span class="lang-fr">Plus de 45% d'augmentation de la pratique du français hors classe chez les étudiants de l'Alliance.</span>
+                                    <span class="lang-es">Más del 45% de aumento en la práctica del francés fuera del aula entre los alumnos de la Alianza.</span>
+                                    <span class="lang-en">45% increase in French practice outside classrooms recorded among the active student body.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHE 4 : MundialPronos -->
+            <div id="detail-mundialpronos" class="project-detail-content hidden space-y-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                    <div class="relative h-64 sm:h-96 w-full">
+                        <img src="images/mundialpronos_mockup.png" alt="MundialPronos Presentation" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/40"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h2 class="text-2xl sm:text-4xl font-extrabold">MundialPronos</h2>
+                            <p class="text-sm sm:text-base text-slate-200 mt-2 font-light">
+                                <span class="lang-fr">Portail de pronostics de football interactif pour la Coupe du Monde</span>
+                                <span class="lang-es">Portal de pronósticos interactivo para la Copa Mundial de fútbol</span>
+                                <span class="lang-en">Gamified real-time prediction engine for the football World Cup</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-6 text-sm text-slate-600 leading-relaxed text-justify">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2">
+                                    <span class="lang-fr">La Mission</span><span class="lang-es">La Misión</span><span class="lang-en">The Mission</span>
+                                </h3>
+                                <p>
+                                    <span class="lang-fr">MundialPronos est une application web conçue pour dynamiser les interactions sociales et créer de la cohésion communautaire ou d'entreprise lors de la Coupe du Monde de football. La plateforme permet aux utilisateurs de soumettre facilement leurs pronostics, de s'affronter dans des ligues amicales et de comparer leurs scores dans un classement général réactualisé après chaque coup de sifflet final.</span>
+                                    <span class="lang-es">MundialPronos es una aplicación web diseñada para incentivar las interacciones sociales y crear cohesión comunitaria o corporativa durante la Copa Mundial de fútbol. La plataforma permite a los usuarios registrar fácilmente sus predicciones, competir en ligas privadas entre amigos y comparar sus puntajes en una clasificación global actualizada al instante tras cada partido.</span>
+                                    <span class="lang-en">MundialPronos is a custom web application built to foster friendly social interactions and corporate team building during the football World Cup. The platform allows users to easily log match predictions, compete in custom private leagues, and compare points on a dynamic, instant-updating global leaderboard.</span>
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 mb-2">
+                                    <span class="lang-fr">Caractéristiques Clés</span><span class="lang-es">Características Claves</span><span class="lang-en">Key Features</span>
+                                </h3>
+                                <ul class="list-disc list-inside pl-2 space-y-1">
+                                    <li><strong><span class="lang-fr">Ligues Privées & Publiques</span><span class="lang-es">Ligas Privadas y Públicas</span><span class="lang-en">Private & Public Leagues</span>:</strong> <span class="lang-fr">Possibilité de créer sa propre ligue pour défier ses amis, collègues ou camarades de classe.</span><span class="lang-es">Posibilidad de crear ligas propias para competir con amigos, compañeros o estudiantes.</span><span class="lang-en">Create custom, locked leagues to challenge friends, workmates, or students.</span></li>
+                                    <li><strong><span class="lang-fr">Classement en Temps Réel</span><span class="lang-es">Tablas en Tiempo Real</span><span class="lang-en">Real-time Standings</span>:</strong> <span class="lang-fr">Calcul automatique des scores des pronostiqueurs dès la validation des scores officiels de la FIFA (Firebase Database).</span><span class="lang-es">Cálculo automático de puntajes en cuanto se registran los marcadores oficiales de la FIFA (Firebase Database).</span><span class="lang-en">Automatic calculations of points as soon as official FIFA scores are verified, using Firebase.</span></li>
+                                    <li><strong><span class="lang-fr">Expérience Utilisateur Mobile-First</span><span class="lang-es">UX Mobile-First</span><span class="lang-en">Mobile-First Experience</span>:</strong> <span class="lang-fr">Interface légère, ultra-rapide et responsive pour saisir ses pronostics sur smartphone juste avant les matchs.</span><span class="lang-es">Interfaz ligera, ultra rápida y responsiva para ingresar predicciones desde teléfonos antes del silbatazo inicial.</span><span class="lang-en">Vibrant, lightweight, fast-loading mobile layout for submitting predictions on-the-go.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4">
+                                    <span class="lang-fr">Fiche technique</span><span class="lang-es">Ficha técnica</span><span class="lang-en">Project Info</span>
+                                </h3>
+                                <div class="space-y-3 text-xs">
+                                    <div><span class="font-semibold text-slate-500">Tech Stack:</span> JavaScript (ES6), HTML5, CSS3, Firebase Realtime Database.</div>
+                                    <div><span class="font-semibold text-slate-500">Audience:</span> Public / Community.</div>
+                                    <div><span class="font-semibold text-slate-500">Status:</span> Production.</div>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <h4 class="text-xs font-bold text-amber-600 mb-1">
+                                    <span class="lang-fr">Gamification</span><span class="lang-es">Ludificación</span><span class="lang-en">Gamification</span>
+                                </h4>
+                                <p class="text-[11px] text-slate-500">
+                                    <span class="lang-fr">Système de points dynamique récompensant le score exact ou la bonne différence de buts.</span>
+                                    <span class="lang-es">Sistema dinámico de puntaje que premia el marcador exacto o la diferencia de goles correcta.</span>
+                                    <span class="lang-en">Dynamic gamified score rules rewarding exact scorelines, goal difference, or match winners.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-slate-400 py-8 border-t border-slate-800 w-full">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs space-y-2">
+            <p>&copy; 2026 Cédric Bernardin. <span class="lang-fr">Tous droits réservés.</span><span class="lang-es">Todos los derechos reservados.</span><span class="lang-en">All rights reserved.</span></p>
+            <p>
+                <span class="lang-fr">Conçu pour allier éducation, traduction et innovation technique.</span>
+                <span class="lang-es">Diseñado para unir educación, traducción e innovación tecnológica.</span>
+                <span class="lang-en">Designed to unite education, translation, and technological innovation.</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- LOGIQUE JAVASCRIPT GLOBAL -->
+    <script>
+        // État de la langue active globale (fr par défaut)
+        let currentLang = 'fr';
+
+        // Fonction pour changer la langue du site entier
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Masquer tous les blocs de langues
+            document.querySelectorAll('.lang-fr, .lang-es, .lang-en').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Afficher les blocs de la langue active
+            document.querySelectorAll('.lang-' + lang).forEach(el => {
+                el.classList.remove('hidden');
+            });
+            
+            // Mettre à jour l'apparence des boutons de langue
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
+                btn.classList.add('text-slate-600', 'hover:bg-slate-200');
+            });
+            
+            document.querySelectorAll('.lang-btn-' + lang).forEach(btn => {
+                btn.classList.remove('text-slate-600', 'hover:bg-slate-200');
+                btn.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
+            });
+
+            // Enregistrer la préférence
+            localStorage.setItem('cv_lang_preference', lang);
         }
 
-        // Fonction pour les onglets de langue du Projet
-        function showLangProject(lang, element) {
-            // Cacher tous les contenus de langue du Projet
-            document.querySelectorAll('#project-view .language-content-project').forEach(c => c.style.display = 'none');
-            // Afficher le contenu de la langue sélectionnée
-            document.getElementById(lang).style.display = 'block';
-
-            // Gérer l'état actif des boutons
-            document.querySelectorAll('#project-view .tab-button').forEach(b => b.classList.remove('active'));
-            element.classList.add('active');
+        // Fonction pour changer d'onglet (CV vs Projets vs Détail)
+        function showView(viewId) {
+            // Masquer les trois vues majeures
+            document.getElementById('cv-view').classList.add('hidden');
+            document.getElementById('projects-grid-view').classList.add('hidden');
+            document.getElementById('project-detail-view').classList.add('hidden');
+            
+            // Rendre visible celle demandée
+            document.getElementById(viewId).classList.remove('hidden');
+            
+            // Réinitialiser le style actif des onglets de navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('border-brand-600', 'text-brand-600');
+                link.classList.add('border-transparent', 'text-slate-600', 'hover:text-slate-900');
+            });
+            
+            // Si le lien de nav existe, l'activer
+            const activeLink = document.getElementById('nav-link-' + viewId);
+            if (activeLink) {
+                activeLink.classList.remove('border-transparent', 'text-slate-600', 'hover:text-slate-900');
+                activeLink.classList.add('border-brand-600', 'text-brand-600');
+            }
+            
+            // Remonter en haut avec fluidité
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Initialisation pour afficher le premier onglet par défaut
+        // Fonction pour afficher la fiche détaillée d'un projet
+        function showProjectDetail(projectId) {
+            // Masquer toutes les fiches détaillées
+            document.querySelectorAll('.project-detail-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Afficher uniquement la fiche correspondante
+            const activeDetail = document.getElementById('detail-' + projectId);
+            if (activeDetail) {
+                activeDetail.classList.remove('hidden');
+            }
+            
+            // Afficher la vue détail générale
+            showView('project-detail-view');
+        }
+
+        // Au chargement du DOM, initialiser la langue
         document.addEventListener('DOMContentLoaded', () => {
-            showLang('fr', document.querySelector('#cv-view .tab-button'));
-            showLangProject('fr-proj', document.querySelector('#project-view .tab-button'));
+            const savedLang = localStorage.getItem('cv_lang_preference') || 'fr';
+            setLanguage(savedLang);
         });
     </script>
 </body>
