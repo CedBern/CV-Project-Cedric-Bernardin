@@ -8,7 +8,7 @@ Ce dépôt héberge le site portfolio et le Curriculum Vitae interactif de Cédr
 - **Grille de Projets Interactifs** : Fiches détaillées trilingues avec visuels haute fidélité pour :
   1. **MayaVoiceTranslator** : Outil de traduction vocale trilingue pour le maya yucatèque.
   2. **EcoValora México** : Plateforme intelligente de valorisation et recyclage des déchets solides.
-  3. **Le Mid Libre** : Portail de ressources FLE et webzine pour l'Alliance Française de Mérida.
+  3. **Horizons** : Portail de webzines interactif (React + Vite) pour l'Alliance Française de Mérida.
   4. **MundialPronos** : Portail ludique de pronostics pour la Coupe du Monde de football.
 - **Design Moderne & Réactif** : Interface conçue avec TailwindCSS, typographies dynamiques (Montserrat + Outfit) et floutages glassmorphismes.
 
@@ -22,7 +22,7 @@ Este repositorio contiene el sitio web de portafolio y Curriculum Vitae interact
 - **Galería de Proyectos**: Fichas detalladas con mockups de alta fidelidad para:
   1. **MayaVoiceTranslator**: Traductor de voz y texto en maya yucateco, español y francés.
   2. **EcoValora México**: Plataforma inteligente de reciclaje y valorización de residuos sólidos.
-  3. **Le Mid Libre**: Webzine cultural y repositorio de recursos FLE de la Alianza Francesa de Mérida.
+  3. **Horizons**: Portal interactivo de revistas digitales (React + Vite) para la Alianza Francesa de Mérida.
   4. **MundialPronos**: Portal interactivo de pronósticos deportivos para la Copa del Mundo.
 - **Diseño Moderno e Interactivo**: Estilizado con TailwindCSS y optimizado para dispositivos móviles y de escritorio.
 
@@ -36,6 +36,6 @@ This repository hosts the interactive portfolio and Curriculum Vitae website of 
 - **Interactive Projects Dashboard**: Detailed trilingual sheets and high-fidelity mockups for:
   1. **MayaVoiceTranslator**: A trilingual Mayan-Spanish-French speech translator.
   2. **EcoValora México**: A smart solid waste recycling and circular economy management portal.
-  3. **Le Mid Libre**: A cultural webzine and FLE learning resources portal for the Alliance Française of Mérida.
+  3. **Horizons**: An interactive webzine portal (React + Vite) for the Alliance Française of Mérida.
   4. **MundialPronos**: A gamified football World Cup match predictions portal.
 - **Modern Responsive UI**: Styled using TailwindCSS and custom CSS variables, optimized for all screen dimensions.
